@@ -3,6 +3,7 @@ import 'package:clean_architecture/presentation/login/login_screen.dart';
 import 'package:clean_architecture/presentation/main/main_screen.dart';
 import 'package:clean_architecture/presentation/onboarding/onboarding_screen.dart';
 import 'package:clean_architecture/presentation/register/register_screen.dart';
+import 'package:clean_architecture/presentation/resources/strings_manager.dart';
 import 'package:clean_architecture/presentation/splash/splash_screen.dart';
 import 'package:clean_architecture/presentation/store_detail/store_detail_screen.dart';
 import 'package:flutter/material.dart';
@@ -43,10 +44,10 @@ class RouteGenerator {
     return MaterialPageRoute(
       builder: (_) => Scaffold(
         appBar: AppBar(
-          title: const Text('No Route Found'),
+          title: const Text(AppStrings.noRouteFound),
         ),
         body: const Center(
-          child: Text('No Route Found'),
+          child: Text(AppStrings.noRouteFound),
         ),
       ),
     );

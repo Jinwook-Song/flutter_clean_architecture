@@ -17,7 +17,7 @@ ThemeData getAppTheme() {
     splashColor: ColorManager.primaryOpacity70,
 
     // card view theme
-    cardTheme: CardTheme(
+    cardTheme: const CardTheme(
       color: ColorManager.white,
       shadowColor: ColorManager.grey,
       elevation: AppSize.s4,
@@ -35,8 +35,8 @@ ThemeData getAppTheme() {
     ),
 
     // Button theme
-    buttonTheme: ButtonThemeData(
-      shape: const StadiumBorder(),
+    buttonTheme: const ButtonThemeData(
+      shape: StadiumBorder(),
       disabledColor: ColorManager.grey1,
       buttonColor: ColorManager.primary,
       splashColor: ColorManager.primaryOpacity70,
@@ -85,34 +85,34 @@ ThemeData getAppTheme() {
       errorStyle: getRegularStyle(color: ColorManager.error),
 
       // enabled border
-      enabledBorder: OutlineInputBorder(
+      enabledBorder: const OutlineInputBorder(
         borderSide: BorderSide(color: ColorManager.grey, width: AppSize.s1_5),
-        borderRadius: const BorderRadius.all(
+        borderRadius: BorderRadius.all(
           Radius.circular(AppSize.s8),
         ),
       ),
 
       // focused border
-      focusedBorder: OutlineInputBorder(
+      focusedBorder: const OutlineInputBorder(
         borderSide:
             BorderSide(color: ColorManager.primary, width: AppSize.s1_5),
-        borderRadius: const BorderRadius.all(
+        borderRadius: BorderRadius.all(
           Radius.circular(AppSize.s8),
         ),
       ),
 
       // error border
-      errorBorder: OutlineInputBorder(
+      errorBorder: const OutlineInputBorder(
         borderSide: BorderSide(color: ColorManager.error, width: AppSize.s1_5),
-        borderRadius: const BorderRadius.all(
+        borderRadius: BorderRadius.all(
           Radius.circular(AppSize.s8),
         ),
       ),
       // focused error border
-      focusedErrorBorder: OutlineInputBorder(
+      focusedErrorBorder: const OutlineInputBorder(
         borderSide:
             BorderSide(color: ColorManager.primary, width: AppSize.s1_5),
-        borderRadius: const BorderRadius.all(
+        borderRadius: BorderRadius.all(
           Radius.circular(AppSize.s8),
         ),
       ),
