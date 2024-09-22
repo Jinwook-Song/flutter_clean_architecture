@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  Runner
+
+  Created by 송진욱 on 9/22/24.
+  
+*/
+"CFBundleDisplayName" = "Clean Architecture";
