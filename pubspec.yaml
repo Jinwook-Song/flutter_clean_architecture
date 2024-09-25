@@ -13,6 +13,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.6
+  gap: ^3.0.1
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_test:
@@ -24,6 +26,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/images/
     - assets/images/splash_logo.png
   fonts:
     - family: Montserrat
