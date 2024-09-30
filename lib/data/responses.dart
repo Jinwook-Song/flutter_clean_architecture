@@ -1,90 +1,55 @@
-import 'package:json_annotation/json_annotation.dart';
+// ignore_for_file: invalid_annotation_target
 
-part 'responses.g.dart'; // Code generation을 위한 파일
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonSerializable()
-class BaseResponse {
-  @JsonKey(name: 'status')
-  final int status; // 필수로 변경 (nullable 필요시 원래대로)
+part 'responses.freezed.dart';
+part 'responses.g.dart';
 
-  @JsonKey(name: 'message')
-  final String message; // 필수로 변경
-
-  BaseResponse({
-    required this.status,
-    required this.message,
-  });
+@freezed
+class BaseResponse with _$BaseResponse {
+  const factory BaseResponse({
+    @JsonKey(name: 'status') required int status,
+    @JsonKey(name: 'message') required String message,
+  }) = _BaseResponse;
 
   factory BaseResponse.fromJson(Map<String, dynamic> json) =>
       _$BaseResponseFromJson(json);
-  Map<String, dynamic> toJson() => _$BaseResponseToJson(this);
 }
 
-@JsonSerializable()
-class CustomerResponse {
-  @JsonKey(name: 'id')
-  final String id;
-
-  @JsonKey(name: 'name')
-  final String name;
-
-  @JsonKey(name: 'numOfNotifications')
-  final int numOfNotifications;
-
-  CustomerResponse({
-    required this.id,
-    required this.name,
-    required this.numOfNotifications,
-  });
+@freezed
+class CustomerResponse with _$CustomerResponse {
+  const factory CustomerResponse({
+    @JsonKey(name: 'id') required String id,
+    @JsonKey(name: 'name') required String name,
+    @JsonKey(name: 'numOfNotifications') required int numOfNotifications,
+  }) = _CustomerResponse;
 
   factory CustomerResponse.fromJson(Map<String, dynamic> json) =>
       _$CustomerResponseFromJson(json);
-  Map<String, dynamic> toJson() => _$CustomerResponseToJson(this);
 }
 
-@JsonSerializable()
-class ContactsResponse {
-  @JsonKey(name: 'phone')
-  final String phone;
-
-  @JsonKey(name: 'link')
-  final String link;
-
-  @JsonKey(name: 'email')
-  final String email;
-
-  ContactsResponse({
-    required this.phone,
-    required this.link,
-    required this.email,
-  });
+@freezed
+class ContactsResponse with _$ContactsResponse {
+  const factory ContactsResponse({
+    @JsonKey(name: 'phone') required String phone,
+    @JsonKey(name: 'link') required String link,
+    @JsonKey(name: 'email') required String email,
+  }) = _ContactsResponse;
 
   factory ContactsResponse.fromJson(Map<String, dynamic> json) =>
       _$ContactsResponseFromJson(json);
-  Map<String, dynamic> toJson() => _$ContactsResponseToJson(this);
 }
 
-@JsonSerializable()
-class AuthResponse extends BaseResponse {
-  @JsonKey(name: 'customer')
-  final ContactsResponse? customer;
-
-  @JsonKey(name: 'link')
-  final String link;
-
-  @JsonKey(name: 'contacts')
-  final ContactsResponse? contacts;
-
-  AuthResponse({
-    required super.status,
-    required super.message,
-    this.customer,
-    required this.link,
-    this.contacts,
-  });
+@freezed
+class AuthResponse with _$AuthResponse {
+  @JsonSerializable(explicitToJson: true)
+  const factory AuthResponse({
+    @JsonKey(name: 'base') required BaseResponse base,
+    @JsonKey(name: 'customer') ContactsResponse? customer,
+    @JsonKey(name: 'link') required String link,
+    @JsonKey(name: 'contacts') ContactsResponse? contacts,
+  }) = _AuthResponse;
 
   factory AuthResponse.fromJson(Map<String, dynamic> json) =>
       _$AuthResponseFromJson(json);
-  @override
-  Map<String, dynamic> toJson() => _$AuthResponseToJson(this);
 }

@@ -6,48 +6,53 @@ part of 'responses.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-BaseResponse _$BaseResponseFromJson(Map<String, dynamic> json) => BaseResponse(
+_$BaseResponseImpl _$$BaseResponseImplFromJson(Map<String, dynamic> json) =>
+    _$BaseResponseImpl(
       status: (json['status'] as num).toInt(),
       message: json['message'] as String,
     );
 
-Map<String, dynamic> _$BaseResponseToJson(BaseResponse instance) =>
+Map<String, dynamic> _$$BaseResponseImplToJson(_$BaseResponseImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
     };
 
-CustomerResponse _$CustomerResponseFromJson(Map<String, dynamic> json) =>
-    CustomerResponse(
+_$CustomerResponseImpl _$$CustomerResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$CustomerResponseImpl(
       id: json['id'] as String,
       name: json['name'] as String,
       numOfNotifications: (json['numOfNotifications'] as num).toInt(),
     );
 
-Map<String, dynamic> _$CustomerResponseToJson(CustomerResponse instance) =>
+Map<String, dynamic> _$$CustomerResponseImplToJson(
+        _$CustomerResponseImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'numOfNotifications': instance.numOfNotifications,
     };
 
-ContactsResponse _$ContactsResponseFromJson(Map<String, dynamic> json) =>
-    ContactsResponse(
+_$ContactsResponseImpl _$$ContactsResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ContactsResponseImpl(
       phone: json['phone'] as String,
       link: json['link'] as String,
       email: json['email'] as String,
     );
 
-Map<String, dynamic> _$ContactsResponseToJson(ContactsResponse instance) =>
+Map<String, dynamic> _$$ContactsResponseImplToJson(
+        _$ContactsResponseImpl instance) =>
     <String, dynamic>{
       'phone': instance.phone,
       'link': instance.link,
       'email': instance.email,
     };
 
-AuthResponse _$AuthResponseFromJson(Map<String, dynamic> json) => AuthResponse(
-      status: (json['status'] as num).toInt(),
-      message: json['message'] as String,
+_$AuthResponseImpl _$$AuthResponseImplFromJson(Map<String, dynamic> json) =>
+    _$AuthResponseImpl(
+      base: BaseResponse.fromJson(json['base'] as Map<String, dynamic>),
       customer: json['customer'] == null
           ? null
           : ContactsResponse.fromJson(json['customer'] as Map<String, dynamic>),
@@ -57,11 +62,10 @@ AuthResponse _$AuthResponseFromJson(Map<String, dynamic> json) => AuthResponse(
           : ContactsResponse.fromJson(json['contacts'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$AuthResponseToJson(AuthResponse instance) =>
+Map<String, dynamic> _$$AuthResponseImplToJson(_$AuthResponseImpl instance) =>
     <String, dynamic>{
-      'status': instance.status,
-      'message': instance.message,
-      'customer': instance.customer,
+      'base': instance.base.toJson(),
+      'customer': instance.customer?.toJson(),
       'link': instance.link,
-      'contacts': instance.contacts,
+      'contacts': instance.contacts?.toJson(),
     };
