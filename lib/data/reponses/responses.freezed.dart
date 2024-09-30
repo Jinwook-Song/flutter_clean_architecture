@@ -21,9 +21,9 @@ BaseResponse _$BaseResponseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$BaseResponse {
   @JsonKey(name: 'status')
-  int get status => throw _privateConstructorUsedError;
+  int? get status => throw _privateConstructorUsedError;
   @JsonKey(name: 'message')
-  String get message => throw _privateConstructorUsedError;
+  String? get message => throw _privateConstructorUsedError;
 
   /// Serializes this BaseResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,8 +42,8 @@ abstract class $BaseResponseCopyWith<$Res> {
       _$BaseResponseCopyWithImpl<$Res, BaseResponse>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'status') int status,
-      @JsonKey(name: 'message') String message});
+      {@JsonKey(name: 'status') int? status,
+      @JsonKey(name: 'message') String? message});
 }
 
 /// @nodoc
@@ -61,18 +61,18 @@ class _$BaseResponseCopyWithImpl<$Res, $Val extends BaseResponse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? message = null,
+    Object? status = freezed,
+    Object? message = freezed,
   }) {
     return _then(_value.copyWith(
-      status: null == status
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as int,
-      message: null == message
+              as int?,
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -86,8 +86,8 @@ abstract class _$$BaseResponseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'status') int status,
-      @JsonKey(name: 'message') String message});
+      {@JsonKey(name: 'status') int? status,
+      @JsonKey(name: 'message') String? message});
 }
 
 /// @nodoc
@@ -103,18 +103,18 @@ class __$$BaseResponseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? message = null,
+    Object? status = freezed,
+    Object? message = freezed,
   }) {
     return _then(_$BaseResponseImpl(
-      status: null == status
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as int,
-      message: null == message
+              as int?,
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -123,18 +123,18 @@ class __$$BaseResponseImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$BaseResponseImpl implements _BaseResponse {
   const _$BaseResponseImpl(
-      {@JsonKey(name: 'status') required this.status,
-      @JsonKey(name: 'message') required this.message});
+      {@JsonKey(name: 'status') this.status,
+      @JsonKey(name: 'message') this.message});
 
   factory _$BaseResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$BaseResponseImplFromJson(json);
 
   @override
   @JsonKey(name: 'status')
-  final int status;
+  final int? status;
   @override
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
 
   @override
   String toString() {
@@ -172,19 +172,18 @@ class _$BaseResponseImpl implements _BaseResponse {
 
 abstract class _BaseResponse implements BaseResponse {
   const factory _BaseResponse(
-          {@JsonKey(name: 'status') required final int status,
-          @JsonKey(name: 'message') required final String message}) =
-      _$BaseResponseImpl;
+      {@JsonKey(name: 'status') final int? status,
+      @JsonKey(name: 'message') final String? message}) = _$BaseResponseImpl;
 
   factory _BaseResponse.fromJson(Map<String, dynamic> json) =
       _$BaseResponseImpl.fromJson;
 
   @override
   @JsonKey(name: 'status')
-  int get status;
+  int? get status;
   @override
   @JsonKey(name: 'message')
-  String get message;
+  String? get message;
 
   /// Create a copy of BaseResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -201,11 +200,11 @@ CustomerResponse _$CustomerResponseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CustomerResponse {
   @JsonKey(name: 'id')
-  String get id => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'name')
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'numOfNotifications')
-  int get numOfNotifications => throw _privateConstructorUsedError;
+  int? get numOfNotifications => throw _privateConstructorUsedError;
 
   /// Serializes this CustomerResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -224,9 +223,9 @@ abstract class $CustomerResponseCopyWith<$Res> {
       _$CustomerResponseCopyWithImpl<$Res, CustomerResponse>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') String id,
-      @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'numOfNotifications') int numOfNotifications});
+      {@JsonKey(name: 'id') String? id,
+      @JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'numOfNotifications') int? numOfNotifications});
 }
 
 /// @nodoc
@@ -244,23 +243,23 @@ class _$CustomerResponseCopyWithImpl<$Res, $Val extends CustomerResponse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? numOfNotifications = null,
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? numOfNotifications = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      numOfNotifications: null == numOfNotifications
+              as String?,
+      numOfNotifications: freezed == numOfNotifications
           ? _value.numOfNotifications
           : numOfNotifications // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 }
@@ -274,9 +273,9 @@ abstract class _$$CustomerResponseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') String id,
-      @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'numOfNotifications') int numOfNotifications});
+      {@JsonKey(name: 'id') String? id,
+      @JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'numOfNotifications') int? numOfNotifications});
 }
 
 /// @nodoc
@@ -292,23 +291,23 @@ class __$$CustomerResponseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? numOfNotifications = null,
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? numOfNotifications = freezed,
   }) {
     return _then(_$CustomerResponseImpl(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      numOfNotifications: null == numOfNotifications
+              as String?,
+      numOfNotifications: freezed == numOfNotifications
           ? _value.numOfNotifications
           : numOfNotifications // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -317,22 +316,22 @@ class __$$CustomerResponseImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CustomerResponseImpl implements _CustomerResponse {
   const _$CustomerResponseImpl(
-      {@JsonKey(name: 'id') required this.id,
-      @JsonKey(name: 'name') required this.name,
-      @JsonKey(name: 'numOfNotifications') required this.numOfNotifications});
+      {@JsonKey(name: 'id') this.id,
+      @JsonKey(name: 'name') this.name,
+      @JsonKey(name: 'numOfNotifications') this.numOfNotifications});
 
   factory _$CustomerResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$CustomerResponseImplFromJson(json);
 
   @override
   @JsonKey(name: 'id')
-  final String id;
+  final String? id;
   @override
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @override
   @JsonKey(name: 'numOfNotifications')
-  final int numOfNotifications;
+  final int? numOfNotifications;
 
   @override
   String toString() {
@@ -373,23 +372,23 @@ class _$CustomerResponseImpl implements _CustomerResponse {
 
 abstract class _CustomerResponse implements CustomerResponse {
   const factory _CustomerResponse(
-      {@JsonKey(name: 'id') required final String id,
-      @JsonKey(name: 'name') required final String name,
-      @JsonKey(name: 'numOfNotifications')
-      required final int numOfNotifications}) = _$CustomerResponseImpl;
+          {@JsonKey(name: 'id') final String? id,
+          @JsonKey(name: 'name') final String? name,
+          @JsonKey(name: 'numOfNotifications') final int? numOfNotifications}) =
+      _$CustomerResponseImpl;
 
   factory _CustomerResponse.fromJson(Map<String, dynamic> json) =
       _$CustomerResponseImpl.fromJson;
 
   @override
   @JsonKey(name: 'id')
-  String get id;
+  String? get id;
   @override
   @JsonKey(name: 'name')
-  String get name;
+  String? get name;
   @override
   @JsonKey(name: 'numOfNotifications')
-  int get numOfNotifications;
+  int? get numOfNotifications;
 
   /// Create a copy of CustomerResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -406,11 +405,11 @@ ContactsResponse _$ContactsResponseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ContactsResponse {
   @JsonKey(name: 'phone')
-  String get phone => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
   @JsonKey(name: 'link')
-  String get link => throw _privateConstructorUsedError;
+  String? get link => throw _privateConstructorUsedError;
   @JsonKey(name: 'email')
-  String get email => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
 
   /// Serializes this ContactsResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -429,9 +428,9 @@ abstract class $ContactsResponseCopyWith<$Res> {
       _$ContactsResponseCopyWithImpl<$Res, ContactsResponse>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'phone') String phone,
-      @JsonKey(name: 'link') String link,
-      @JsonKey(name: 'email') String email});
+      {@JsonKey(name: 'phone') String? phone,
+      @JsonKey(name: 'link') String? link,
+      @JsonKey(name: 'email') String? email});
 }
 
 /// @nodoc
@@ -449,23 +448,23 @@ class _$ContactsResponseCopyWithImpl<$Res, $Val extends ContactsResponse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? phone = null,
-    Object? link = null,
-    Object? email = null,
+    Object? phone = freezed,
+    Object? link = freezed,
+    Object? email = freezed,
   }) {
     return _then(_value.copyWith(
-      phone: null == phone
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      link: null == link
+              as String?,
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
+              as String?,
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -479,9 +478,9 @@ abstract class _$$ContactsResponseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'phone') String phone,
-      @JsonKey(name: 'link') String link,
-      @JsonKey(name: 'email') String email});
+      {@JsonKey(name: 'phone') String? phone,
+      @JsonKey(name: 'link') String? link,
+      @JsonKey(name: 'email') String? email});
 }
 
 /// @nodoc
@@ -497,23 +496,23 @@ class __$$ContactsResponseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? phone = null,
-    Object? link = null,
-    Object? email = null,
+    Object? phone = freezed,
+    Object? link = freezed,
+    Object? email = freezed,
   }) {
     return _then(_$ContactsResponseImpl(
-      phone: null == phone
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      link: null == link
+              as String?,
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
+              as String?,
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -522,22 +521,22 @@ class __$$ContactsResponseImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ContactsResponseImpl implements _ContactsResponse {
   const _$ContactsResponseImpl(
-      {@JsonKey(name: 'phone') required this.phone,
-      @JsonKey(name: 'link') required this.link,
-      @JsonKey(name: 'email') required this.email});
+      {@JsonKey(name: 'phone') this.phone,
+      @JsonKey(name: 'link') this.link,
+      @JsonKey(name: 'email') this.email});
 
   factory _$ContactsResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$ContactsResponseImplFromJson(json);
 
   @override
   @JsonKey(name: 'phone')
-  final String phone;
+  final String? phone;
   @override
   @JsonKey(name: 'link')
-  final String link;
+  final String? link;
   @override
   @JsonKey(name: 'email')
-  final String email;
+  final String? email;
 
   @override
   String toString() {
@@ -577,23 +576,22 @@ class _$ContactsResponseImpl implements _ContactsResponse {
 
 abstract class _ContactsResponse implements ContactsResponse {
   const factory _ContactsResponse(
-          {@JsonKey(name: 'phone') required final String phone,
-          @JsonKey(name: 'link') required final String link,
-          @JsonKey(name: 'email') required final String email}) =
-      _$ContactsResponseImpl;
+      {@JsonKey(name: 'phone') final String? phone,
+      @JsonKey(name: 'link') final String? link,
+      @JsonKey(name: 'email') final String? email}) = _$ContactsResponseImpl;
 
   factory _ContactsResponse.fromJson(Map<String, dynamic> json) =
       _$ContactsResponseImpl.fromJson;
 
   @override
   @JsonKey(name: 'phone')
-  String get phone;
+  String? get phone;
   @override
   @JsonKey(name: 'link')
-  String get link;
+  String? get link;
   @override
   @JsonKey(name: 'email')
-  String get email;
+  String? get email;
 
   /// Create a copy of ContactsResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -610,11 +608,11 @@ AuthResponse _$AuthResponseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AuthResponse {
   @JsonKey(name: 'base')
-  BaseResponse get base => throw _privateConstructorUsedError;
+  BaseResponse? get base => throw _privateConstructorUsedError;
   @JsonKey(name: 'customer')
   ContactsResponse? get customer => throw _privateConstructorUsedError;
   @JsonKey(name: 'link')
-  String get link => throw _privateConstructorUsedError;
+  String? get link => throw _privateConstructorUsedError;
   @JsonKey(name: 'contacts')
   ContactsResponse? get contacts => throw _privateConstructorUsedError;
 
@@ -635,12 +633,12 @@ abstract class $AuthResponseCopyWith<$Res> {
       _$AuthResponseCopyWithImpl<$Res, AuthResponse>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'base') BaseResponse base,
+      {@JsonKey(name: 'base') BaseResponse? base,
       @JsonKey(name: 'customer') ContactsResponse? customer,
-      @JsonKey(name: 'link') String link,
+      @JsonKey(name: 'link') String? link,
       @JsonKey(name: 'contacts') ContactsResponse? contacts});
 
-  $BaseResponseCopyWith<$Res> get base;
+  $BaseResponseCopyWith<$Res>? get base;
   $ContactsResponseCopyWith<$Res>? get customer;
   $ContactsResponseCopyWith<$Res>? get contacts;
 }
@@ -660,24 +658,24 @@ class _$AuthResponseCopyWithImpl<$Res, $Val extends AuthResponse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? base = null,
+    Object? base = freezed,
     Object? customer = freezed,
-    Object? link = null,
+    Object? link = freezed,
     Object? contacts = freezed,
   }) {
     return _then(_value.copyWith(
-      base: null == base
+      base: freezed == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
-              as BaseResponse,
+              as BaseResponse?,
       customer: freezed == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
               as ContactsResponse?,
-      link: null == link
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       contacts: freezed == contacts
           ? _value.contacts
           : contacts // ignore: cast_nullable_to_non_nullable
@@ -689,8 +687,12 @@ class _$AuthResponseCopyWithImpl<$Res, $Val extends AuthResponse>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BaseResponseCopyWith<$Res> get base {
-    return $BaseResponseCopyWith<$Res>(_value.base, (value) {
+  $BaseResponseCopyWith<$Res>? get base {
+    if (_value.base == null) {
+      return null;
+    }
+
+    return $BaseResponseCopyWith<$Res>(_value.base!, (value) {
       return _then(_value.copyWith(base: value) as $Val);
     });
   }
@@ -733,13 +735,13 @@ abstract class _$$AuthResponseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'base') BaseResponse base,
+      {@JsonKey(name: 'base') BaseResponse? base,
       @JsonKey(name: 'customer') ContactsResponse? customer,
-      @JsonKey(name: 'link') String link,
+      @JsonKey(name: 'link') String? link,
       @JsonKey(name: 'contacts') ContactsResponse? contacts});
 
   @override
-  $BaseResponseCopyWith<$Res> get base;
+  $BaseResponseCopyWith<$Res>? get base;
   @override
   $ContactsResponseCopyWith<$Res>? get customer;
   @override
@@ -759,24 +761,24 @@ class __$$AuthResponseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? base = null,
+    Object? base = freezed,
     Object? customer = freezed,
-    Object? link = null,
+    Object? link = freezed,
     Object? contacts = freezed,
   }) {
     return _then(_$AuthResponseImpl(
-      base: null == base
+      base: freezed == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
-              as BaseResponse,
+              as BaseResponse?,
       customer: freezed == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
               as ContactsResponse?,
-      link: null == link
+      link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       contacts: freezed == contacts
           ? _value.contacts
           : contacts // ignore: cast_nullable_to_non_nullable
@@ -790,9 +792,9 @@ class __$$AuthResponseImplCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true)
 class _$AuthResponseImpl implements _AuthResponse {
   const _$AuthResponseImpl(
-      {@JsonKey(name: 'base') required this.base,
+      {@JsonKey(name: 'base') this.base,
       @JsonKey(name: 'customer') this.customer,
-      @JsonKey(name: 'link') required this.link,
+      @JsonKey(name: 'link') this.link,
       @JsonKey(name: 'contacts') this.contacts});
 
   factory _$AuthResponseImpl.fromJson(Map<String, dynamic> json) =>
@@ -800,13 +802,13 @@ class _$AuthResponseImpl implements _AuthResponse {
 
   @override
   @JsonKey(name: 'base')
-  final BaseResponse base;
+  final BaseResponse? base;
   @override
   @JsonKey(name: 'customer')
   final ContactsResponse? customer;
   @override
   @JsonKey(name: 'link')
-  final String link;
+  final String? link;
   @override
   @JsonKey(name: 'contacts')
   final ContactsResponse? contacts;
@@ -851,9 +853,9 @@ class _$AuthResponseImpl implements _AuthResponse {
 
 abstract class _AuthResponse implements AuthResponse {
   const factory _AuthResponse(
-          {@JsonKey(name: 'base') required final BaseResponse base,
+          {@JsonKey(name: 'base') final BaseResponse? base,
           @JsonKey(name: 'customer') final ContactsResponse? customer,
-          @JsonKey(name: 'link') required final String link,
+          @JsonKey(name: 'link') final String? link,
           @JsonKey(name: 'contacts') final ContactsResponse? contacts}) =
       _$AuthResponseImpl;
 
@@ -862,13 +864,13 @@ abstract class _AuthResponse implements AuthResponse {
 
   @override
   @JsonKey(name: 'base')
-  BaseResponse get base;
+  BaseResponse? get base;
   @override
   @JsonKey(name: 'customer')
   ContactsResponse? get customer;
   @override
   @JsonKey(name: 'link')
-  String get link;
+  String? get link;
   @override
   @JsonKey(name: 'contacts')
   ContactsResponse? get contacts;

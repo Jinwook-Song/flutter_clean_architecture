@@ -8,8 +8,8 @@ part 'responses.g.dart';
 @freezed
 class BaseResponse with _$BaseResponse {
   const factory BaseResponse({
-    @JsonKey(name: 'status') required int status,
-    @JsonKey(name: 'message') required String message,
+    @JsonKey(name: 'status') int? status,
+    @JsonKey(name: 'message') String? message,
   }) = _BaseResponse;
 
   factory BaseResponse.fromJson(Map<String, dynamic> json) =>
@@ -19,9 +19,9 @@ class BaseResponse with _$BaseResponse {
 @freezed
 class CustomerResponse with _$CustomerResponse {
   const factory CustomerResponse({
-    @JsonKey(name: 'id') required String id,
-    @JsonKey(name: 'name') required String name,
-    @JsonKey(name: 'numOfNotifications') required int numOfNotifications,
+    @JsonKey(name: 'id') String? id,
+    @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'numOfNotifications') int? numOfNotifications,
   }) = _CustomerResponse;
 
   factory CustomerResponse.fromJson(Map<String, dynamic> json) =>
@@ -31,9 +31,9 @@ class CustomerResponse with _$CustomerResponse {
 @freezed
 class ContactsResponse with _$ContactsResponse {
   const factory ContactsResponse({
-    @JsonKey(name: 'phone') required String phone,
-    @JsonKey(name: 'link') required String link,
-    @JsonKey(name: 'email') required String email,
+    @JsonKey(name: 'phone') String? phone,
+    @JsonKey(name: 'link') String? link,
+    @JsonKey(name: 'email') String? email,
   }) = _ContactsResponse;
 
   factory ContactsResponse.fromJson(Map<String, dynamic> json) =>
@@ -44,9 +44,9 @@ class ContactsResponse with _$ContactsResponse {
 class AuthResponse with _$AuthResponse {
   @JsonSerializable(explicitToJson: true)
   const factory AuthResponse({
-    @JsonKey(name: 'base') required BaseResponse base,
+    @JsonKey(name: 'base') BaseResponse? base,
     @JsonKey(name: 'customer') ContactsResponse? customer,
-    @JsonKey(name: 'link') required String link,
+    @JsonKey(name: 'link') String? link,
     @JsonKey(name: 'contacts') ContactsResponse? contacts,
   }) = _AuthResponse;
 
