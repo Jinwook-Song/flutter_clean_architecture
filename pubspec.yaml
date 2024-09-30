@@ -16,7 +16,7 @@ dependencies:
   gap: ^3.0.1
   flutter_svg: ^2.0.10+1
   retrofit: ^4.4.1
-  analyzer: ^6.9.0
+  analyzer: ^6.7.0
   json_serializable: ^6.8.0
 
 dev_dependencies:
