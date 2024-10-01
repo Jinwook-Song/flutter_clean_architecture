@@ -389,8 +389,8 @@ Authentication _$AuthenticationFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Authentication {
-  Customer get customer => throw _privateConstructorUsedError;
-  Contacts get contacts => throw _privateConstructorUsedError;
+  Customer? get customer => throw _privateConstructorUsedError;
+  Contacts? get contacts => throw _privateConstructorUsedError;
 
   /// Serializes this Authentication to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -408,10 +408,10 @@ abstract class $AuthenticationCopyWith<$Res> {
           Authentication value, $Res Function(Authentication) then) =
       _$AuthenticationCopyWithImpl<$Res, Authentication>;
   @useResult
-  $Res call({Customer customer, Contacts contacts});
+  $Res call({Customer? customer, Contacts? contacts});
 
-  $CustomerCopyWith<$Res> get customer;
-  $ContactsCopyWith<$Res> get contacts;
+  $CustomerCopyWith<$Res>? get customer;
+  $ContactsCopyWith<$Res>? get contacts;
 }
 
 /// @nodoc
@@ -429,18 +429,18 @@ class _$AuthenticationCopyWithImpl<$Res, $Val extends Authentication>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? customer = null,
-    Object? contacts = null,
+    Object? customer = freezed,
+    Object? contacts = freezed,
   }) {
     return _then(_value.copyWith(
-      customer: null == customer
+      customer: freezed == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
-              as Customer,
-      contacts: null == contacts
+              as Customer?,
+      contacts: freezed == contacts
           ? _value.contacts
           : contacts // ignore: cast_nullable_to_non_nullable
-              as Contacts,
+              as Contacts?,
     ) as $Val);
   }
 
@@ -448,8 +448,12 @@ class _$AuthenticationCopyWithImpl<$Res, $Val extends Authentication>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CustomerCopyWith<$Res> get customer {
-    return $CustomerCopyWith<$Res>(_value.customer, (value) {
+  $CustomerCopyWith<$Res>? get customer {
+    if (_value.customer == null) {
+      return null;
+    }
+
+    return $CustomerCopyWith<$Res>(_value.customer!, (value) {
       return _then(_value.copyWith(customer: value) as $Val);
     });
   }
@@ -458,8 +462,12 @@ class _$AuthenticationCopyWithImpl<$Res, $Val extends Authentication>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ContactsCopyWith<$Res> get contacts {
-    return $ContactsCopyWith<$Res>(_value.contacts, (value) {
+  $ContactsCopyWith<$Res>? get contacts {
+    if (_value.contacts == null) {
+      return null;
+    }
+
+    return $ContactsCopyWith<$Res>(_value.contacts!, (value) {
       return _then(_value.copyWith(contacts: value) as $Val);
     });
   }
@@ -473,12 +481,12 @@ abstract class _$$AuthenticationImplCopyWith<$Res>
       __$$AuthenticationImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Customer customer, Contacts contacts});
+  $Res call({Customer? customer, Contacts? contacts});
 
   @override
-  $CustomerCopyWith<$Res> get customer;
+  $CustomerCopyWith<$Res>? get customer;
   @override
-  $ContactsCopyWith<$Res> get contacts;
+  $ContactsCopyWith<$Res>? get contacts;
 }
 
 /// @nodoc
@@ -494,18 +502,18 @@ class __$$AuthenticationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? customer = null,
-    Object? contacts = null,
+    Object? customer = freezed,
+    Object? contacts = freezed,
   }) {
     return _then(_$AuthenticationImpl(
-      customer: null == customer
+      customer: freezed == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
-              as Customer,
-      contacts: null == contacts
+              as Customer?,
+      contacts: freezed == contacts
           ? _value.contacts
           : contacts // ignore: cast_nullable_to_non_nullable
-              as Contacts,
+              as Contacts?,
     ));
   }
 }
@@ -514,15 +522,15 @@ class __$$AuthenticationImplCopyWithImpl<$Res>
 
 @JsonSerializable(explicitToJson: true)
 class _$AuthenticationImpl implements _Authentication {
-  const _$AuthenticationImpl({required this.customer, required this.contacts});
+  const _$AuthenticationImpl({this.customer, this.contacts});
 
   factory _$AuthenticationImpl.fromJson(Map<String, dynamic> json) =>
       _$$AuthenticationImplFromJson(json);
 
   @override
-  final Customer customer;
+  final Customer? customer;
   @override
-  final Contacts contacts;
+  final Contacts? contacts;
 
   @override
   String toString() {
@@ -563,16 +571,16 @@ class _$AuthenticationImpl implements _Authentication {
 
 abstract class _Authentication implements Authentication {
   const factory _Authentication(
-      {required final Customer customer,
-      required final Contacts contacts}) = _$AuthenticationImpl;
+      {final Customer? customer,
+      final Contacts? contacts}) = _$AuthenticationImpl;
 
   factory _Authentication.fromJson(Map<String, dynamic> json) =
       _$AuthenticationImpl.fromJson;
 
   @override
-  Customer get customer;
+  Customer? get customer;
   @override
-  Contacts get contacts;
+  Contacts? get contacts;
 
   /// Create a copy of Authentication
   /// with the given fields replaced by the non-null parameter values.

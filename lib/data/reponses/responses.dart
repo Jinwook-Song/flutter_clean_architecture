@@ -45,7 +45,7 @@ class AuthResponse with _$AuthResponse {
   @JsonSerializable(explicitToJson: true)
   const factory AuthResponse({
     @JsonKey(name: 'base') BaseResponse? base,
-    @JsonKey(name: 'customer') ContactsResponse? customer,
+    @JsonKey(name: 'customer') CustomerResponse? customer,
     @JsonKey(name: 'link') String? link,
     @JsonKey(name: 'contacts') ContactsResponse? contacts,
   }) = _AuthResponse;

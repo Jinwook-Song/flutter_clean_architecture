@@ -610,7 +610,7 @@ mixin _$AuthResponse {
   @JsonKey(name: 'base')
   BaseResponse? get base => throw _privateConstructorUsedError;
   @JsonKey(name: 'customer')
-  ContactsResponse? get customer => throw _privateConstructorUsedError;
+  CustomerResponse? get customer => throw _privateConstructorUsedError;
   @JsonKey(name: 'link')
   String? get link => throw _privateConstructorUsedError;
   @JsonKey(name: 'contacts')
@@ -634,12 +634,12 @@ abstract class $AuthResponseCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'base') BaseResponse? base,
-      @JsonKey(name: 'customer') ContactsResponse? customer,
+      @JsonKey(name: 'customer') CustomerResponse? customer,
       @JsonKey(name: 'link') String? link,
       @JsonKey(name: 'contacts') ContactsResponse? contacts});
 
   $BaseResponseCopyWith<$Res>? get base;
-  $ContactsResponseCopyWith<$Res>? get customer;
+  $CustomerResponseCopyWith<$Res>? get customer;
   $ContactsResponseCopyWith<$Res>? get contacts;
 }
 
@@ -671,7 +671,7 @@ class _$AuthResponseCopyWithImpl<$Res, $Val extends AuthResponse>
       customer: freezed == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
-              as ContactsResponse?,
+              as CustomerResponse?,
       link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
@@ -701,12 +701,12 @@ class _$AuthResponseCopyWithImpl<$Res, $Val extends AuthResponse>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ContactsResponseCopyWith<$Res>? get customer {
+  $CustomerResponseCopyWith<$Res>? get customer {
     if (_value.customer == null) {
       return null;
     }
 
-    return $ContactsResponseCopyWith<$Res>(_value.customer!, (value) {
+    return $CustomerResponseCopyWith<$Res>(_value.customer!, (value) {
       return _then(_value.copyWith(customer: value) as $Val);
     });
   }
@@ -736,14 +736,14 @@ abstract class _$$AuthResponseImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'base') BaseResponse? base,
-      @JsonKey(name: 'customer') ContactsResponse? customer,
+      @JsonKey(name: 'customer') CustomerResponse? customer,
       @JsonKey(name: 'link') String? link,
       @JsonKey(name: 'contacts') ContactsResponse? contacts});
 
   @override
   $BaseResponseCopyWith<$Res>? get base;
   @override
-  $ContactsResponseCopyWith<$Res>? get customer;
+  $CustomerResponseCopyWith<$Res>? get customer;
   @override
   $ContactsResponseCopyWith<$Res>? get contacts;
 }
@@ -774,7 +774,7 @@ class __$$AuthResponseImplCopyWithImpl<$Res>
       customer: freezed == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
-              as ContactsResponse?,
+              as CustomerResponse?,
       link: freezed == link
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
@@ -805,7 +805,7 @@ class _$AuthResponseImpl implements _AuthResponse {
   final BaseResponse? base;
   @override
   @JsonKey(name: 'customer')
-  final ContactsResponse? customer;
+  final CustomerResponse? customer;
   @override
   @JsonKey(name: 'link')
   final String? link;
@@ -854,7 +854,7 @@ class _$AuthResponseImpl implements _AuthResponse {
 abstract class _AuthResponse implements AuthResponse {
   const factory _AuthResponse(
           {@JsonKey(name: 'base') final BaseResponse? base,
-          @JsonKey(name: 'customer') final ContactsResponse? customer,
+          @JsonKey(name: 'customer') final CustomerResponse? customer,
           @JsonKey(name: 'link') final String? link,
           @JsonKey(name: 'contacts') final ContactsResponse? contacts}) =
       _$AuthResponseImpl;
@@ -867,7 +867,7 @@ abstract class _AuthResponse implements AuthResponse {
   BaseResponse? get base;
   @override
   @JsonKey(name: 'customer')
-  ContactsResponse? get customer;
+  CustomerResponse? get customer;
   @override
   @JsonKey(name: 'link')
   String? get link;

@@ -45,8 +45,8 @@ class Contacts with _$Contacts {
 class Authentication with _$Authentication {
   @JsonSerializable(explicitToJson: true)
   const factory Authentication({
-    required Customer customer,
-    required Contacts contacts,
+    Customer? customer,
+    Contacts? contacts,
   }) = _Authentication;
 
   factory Authentication.fromJson(Map<String, dynamic> json) =>

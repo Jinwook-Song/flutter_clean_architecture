@@ -1,7 +1,9 @@
+import 'package:clean_architecture/app/constant.dart';
+
 extension NonNullString on String? {
   String orEmpty() {
     if (this == null) {
-      return '';
+      return Constant.empty;
     } else {
       return this!;
     }
@@ -11,7 +13,7 @@ extension NonNullString on String? {
 extension NonNullInteger on int? {
   int orZero() {
     if (this == null) {
-      return 0;
+      return Constant.zero;
     } else {
       return this!;
     }

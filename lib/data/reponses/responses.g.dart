@@ -57,7 +57,7 @@ _$AuthResponseImpl _$$AuthResponseImplFromJson(Map<String, dynamic> json) =>
           : BaseResponse.fromJson(json['base'] as Map<String, dynamic>),
       customer: json['customer'] == null
           ? null
-          : ContactsResponse.fromJson(json['customer'] as Map<String, dynamic>),
+          : CustomerResponse.fromJson(json['customer'] as Map<String, dynamic>),
       link: json['link'] as String?,
       contacts: json['contacts'] == null
           ? null

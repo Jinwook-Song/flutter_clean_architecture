@@ -36,13 +36,17 @@ Map<String, dynamic> _$$ContactsImplToJson(_$ContactsImpl instance) =>
 
 _$AuthenticationImpl _$$AuthenticationImplFromJson(Map<String, dynamic> json) =>
     _$AuthenticationImpl(
-      customer: Customer.fromJson(json['customer'] as Map<String, dynamic>),
-      contacts: Contacts.fromJson(json['contacts'] as Map<String, dynamic>),
+      customer: json['customer'] == null
+          ? null
+          : Customer.fromJson(json['customer'] as Map<String, dynamic>),
+      contacts: json['contacts'] == null
+          ? null
+          : Contacts.fromJson(json['contacts'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$AuthenticationImplToJson(
         _$AuthenticationImpl instance) =>
     <String, dynamic>{
-      'customer': instance.customer.toJson(),
-      'contacts': instance.contacts.toJson(),
+      'customer': instance.customer?.toJson(),
+      'contacts': instance.contacts?.toJson(),
     };
