@@ -589,3 +589,189 @@ abstract class _Authentication implements Authentication {
   _$$AuthenticationImplCopyWith<_$AuthenticationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+DeviceInfo _$DeviceInfoFromJson(Map<String, dynamic> json) {
+  return _DeviceInfo.fromJson(json);
+}
+
+/// @nodoc
+mixin _$DeviceInfo {
+  String get name => throw _privateConstructorUsedError;
+  String get identifier => throw _privateConstructorUsedError;
+  String get version => throw _privateConstructorUsedError;
+
+  /// Serializes this DeviceInfo to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of DeviceInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $DeviceInfoCopyWith<DeviceInfo> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DeviceInfoCopyWith<$Res> {
+  factory $DeviceInfoCopyWith(
+          DeviceInfo value, $Res Function(DeviceInfo) then) =
+      _$DeviceInfoCopyWithImpl<$Res, DeviceInfo>;
+  @useResult
+  $Res call({String name, String identifier, String version});
+}
+
+/// @nodoc
+class _$DeviceInfoCopyWithImpl<$Res, $Val extends DeviceInfo>
+    implements $DeviceInfoCopyWith<$Res> {
+  _$DeviceInfoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of DeviceInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? identifier = null,
+    Object? version = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      identifier: null == identifier
+          ? _value.identifier
+          : identifier // ignore: cast_nullable_to_non_nullable
+              as String,
+      version: null == version
+          ? _value.version
+          : version // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$DeviceInfoImplCopyWith<$Res>
+    implements $DeviceInfoCopyWith<$Res> {
+  factory _$$DeviceInfoImplCopyWith(
+          _$DeviceInfoImpl value, $Res Function(_$DeviceInfoImpl) then) =
+      __$$DeviceInfoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String name, String identifier, String version});
+}
+
+/// @nodoc
+class __$$DeviceInfoImplCopyWithImpl<$Res>
+    extends _$DeviceInfoCopyWithImpl<$Res, _$DeviceInfoImpl>
+    implements _$$DeviceInfoImplCopyWith<$Res> {
+  __$$DeviceInfoImplCopyWithImpl(
+      _$DeviceInfoImpl _value, $Res Function(_$DeviceInfoImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DeviceInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? identifier = null,
+    Object? version = null,
+  }) {
+    return _then(_$DeviceInfoImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      identifier: null == identifier
+          ? _value.identifier
+          : identifier // ignore: cast_nullable_to_non_nullable
+              as String,
+      version: null == version
+          ? _value.version
+          : version // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$DeviceInfoImpl implements _DeviceInfo {
+  const _$DeviceInfoImpl(
+      {required this.name, required this.identifier, required this.version});
+
+  factory _$DeviceInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DeviceInfoImplFromJson(json);
+
+  @override
+  final String name;
+  @override
+  final String identifier;
+  @override
+  final String version;
+
+  @override
+  String toString() {
+    return 'DeviceInfo(name: $name, identifier: $identifier, version: $version)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeviceInfoImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.identifier, identifier) ||
+                other.identifier == identifier) &&
+            (identical(other.version, version) || other.version == version));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, name, identifier, version);
+
+  /// Create a copy of DeviceInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeviceInfoImplCopyWith<_$DeviceInfoImpl> get copyWith =>
+      __$$DeviceInfoImplCopyWithImpl<_$DeviceInfoImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$DeviceInfoImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _DeviceInfo implements DeviceInfo {
+  const factory _DeviceInfo(
+      {required final String name,
+      required final String identifier,
+      required final String version}) = _$DeviceInfoImpl;
+
+  factory _DeviceInfo.fromJson(Map<String, dynamic> json) =
+      _$DeviceInfoImpl.fromJson;
+
+  @override
+  String get name;
+  @override
+  String get identifier;
+  @override
+  String get version;
+
+  /// Create a copy of DeviceInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeviceInfoImplCopyWith<_$DeviceInfoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

@@ -50,3 +50,17 @@ Map<String, dynamic> _$$AuthenticationImplToJson(
       'customer': instance.customer?.toJson(),
       'contacts': instance.contacts?.toJson(),
     };
+
+_$DeviceInfoImpl _$$DeviceInfoImplFromJson(Map<String, dynamic> json) =>
+    _$DeviceInfoImpl(
+      name: json['name'] as String,
+      identifier: json['identifier'] as String,
+      version: json['version'] as String,
+    );
+
+Map<String, dynamic> _$$DeviceInfoImplToJson(_$DeviceInfoImpl instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'identifier': instance.identifier,
+      'version': instance.version,
+    };

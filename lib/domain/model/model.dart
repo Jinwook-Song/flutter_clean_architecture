@@ -52,3 +52,15 @@ class Authentication with _$Authentication {
   factory Authentication.fromJson(Map<String, dynamic> json) =>
       _$AuthenticationFromJson(json);
 }
+
+@freezed
+class DeviceInfo with _$DeviceInfo {
+  const factory DeviceInfo({
+    required String name,
+    required String identifier,
+    required String version,
+  }) = _DeviceInfo;
+
+  factory DeviceInfo.fromJson(Map<String, dynamic> json) =>
+      _$DeviceInfoFromJson(json);
+}

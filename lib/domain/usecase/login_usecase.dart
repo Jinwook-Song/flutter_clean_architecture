@@ -1,3 +1,4 @@
+import 'package:clean_architecture/app/functions.dart';
 import 'package:clean_architecture/data/network/failure.dart';
 import 'package:clean_architecture/data/request/request.dart';
 import 'package:clean_architecture/domain/model/model.dart';
@@ -12,11 +13,12 @@ class LoginUsecase implements BaseUsecase<LoginUsecaseInput, Authentication> {
   @override
   Future<Either<Failure, Authentication>> execute(
       LoginUsecaseInput input) async {
+    final deviceInfo = await getDeviceInfo();
     return await _repository.login(LoginRequest(
       email: input.email,
       password: input.password,
-      imei: 'imei',
-      deviceType: 'deviceType',
+      imei: deviceInfo.identifier,
+      deviceType: deviceInfo.name,
     ));
   }
 }
