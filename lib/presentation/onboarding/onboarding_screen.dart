@@ -2,6 +2,7 @@ import 'package:clean_architecture/domain/model/model.dart';
 import 'package:clean_architecture/presentation/onboarding/onboarding_view_model.dart';
 import 'package:clean_architecture/presentation/resources/assets_manager.dart';
 import 'package:clean_architecture/presentation/resources/color_manager.dart';
+import 'package:clean_architecture/presentation/resources/routes_manager.dart';
 import 'package:clean_architecture/presentation/resources/strings_manager.dart';
 import 'package:clean_architecture/presentation/resources/value_manager.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +63,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               child: Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(
+                      context,
+                      Routes.loginRoute,
+                    );
+                  },
                   child: Text(
                     AppStrings.skip,
                     style: Theme.of(context).textTheme.titleSmall,

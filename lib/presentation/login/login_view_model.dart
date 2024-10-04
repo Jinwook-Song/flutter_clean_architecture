@@ -7,13 +7,15 @@ import 'package:clean_architecture/presentation/common/data_classes.dart';
 
 class LoginViewModel extends BaseViewModel
     implements LoginViewModelInputs, LoginViewModelOutputs {
-  final LoginUsecase _loginUsecase;
+  final LoginUsecase? _loginUsecase;
 
   LoginViewModel(this._loginUsecase);
 
   final StreamController<String> _usernameController =
       StreamController.broadcast();
   final StreamController<String> _passwordController =
+      StreamController.broadcast();
+  final StreamController<void> _isValidAllController =
       StreamController.broadcast();
 
   LoginObject _loginObject = const LoginObject();
@@ -27,6 +29,7 @@ class LoginViewModel extends BaseViewModel
   void dispose() {
     _usernameController.close();
     _passwordController.close();
+    _isValidAllController.close();
   }
 
   // Inputs
@@ -34,15 +37,17 @@ class LoginViewModel extends BaseViewModel
   Sink get inputUsername => _usernameController.sink;
   @override
   Sink get inputPassword => _passwordController.sink;
+  @override
+  Sink get inputIsAllValid => _isValidAllController.sink;
 
   @override
   login() async {
-    final response = await _loginUsecase.execute(LoginUsecaseInput(
+    final response = await _loginUsecase?.execute(LoginUsecaseInput(
       _loginObject.username,
       _loginObject.password,
     ));
 
-    response.fold(
+    response?.fold(
       (failure) => logging(failure.message),
       (data) => logging(data.customer?.name),
     );
@@ -52,12 +57,14 @@ class LoginViewModel extends BaseViewModel
   setUsername(String username) {
     inputUsername.add(username);
     _loginObject = _loginObject.copyWith(username: username);
+    _validate();
   }
 
   @override
   setPassword(String password) {
     inputPassword.add(password);
     _loginObject = _loginObject.copyWith(password: password);
+    _validate();
   }
 
   // Outputs
@@ -67,10 +74,16 @@ class LoginViewModel extends BaseViewModel
   @override
   Stream<bool> get isPasswordValid =>
       _passwordController.stream.map(_isPasswordValid);
+  @override
+  Stream<bool> get isAllValid => _isValidAllController.stream.map(_isAllValid);
 
   // Private methods
+  void _validate() => _isValidAllController.add(null);
   bool _isUsernameValid(String username) => username.isNotEmpty;
   bool _isPasswordValid(String password) => password.isNotEmpty;
+  bool _isAllValid(void _) =>
+      _isUsernameValid(_loginObject.username) &&
+      _isPasswordValid(_loginObject.password);
 }
 
 abstract class LoginViewModelInputs {
@@ -79,12 +92,14 @@ abstract class LoginViewModelInputs {
   setPassword(String password);
   login();
 
-  // 2 sinks for streams
+  // 3 sinks for streams
   Sink get inputUsername;
   Sink get inputPassword;
+  Sink get inputIsAllValid;
 }
 
 abstract class LoginViewModelOutputs {
   Stream<bool> get isUsernameValid;
   Stream<bool> get isPasswordValid;
+  Stream<bool> get isAllValid;
 }
