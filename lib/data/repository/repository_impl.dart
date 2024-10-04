@@ -1,4 +1,5 @@
 import 'package:clean_architecture/data/mapper/mapper.dart';
+import 'package:clean_architecture/data/network/error_handler.dart';
 import 'package:clean_architecture/domain/model.dart';
 import 'package:dartz/dartz.dart';
 
@@ -17,20 +18,26 @@ class RepositoryImpl implements Repository {
   @override
   Future<Either<Failure, Authentication>> login(LoginRequest request) async {
     if (!await _networkInfo.isConnected) {
-      return Left(Failure(code: 501, message: 'offline'));
+      return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
     }
 
-    final response = await _remoteDataSource.login(request);
+    try {
+      final response = await _remoteDataSource.login(request);
 
-    if (response.base == null) {
-      return Left(Failure(code: 500, message: 'Invalid response'));
-    }
+      if (response.base == null) {
+        return Left(DataSource.INTERNAL_SERVER_ERROR.getFailure());
+      }
 
-    if (response.base!.status == 0) {
-      return Right(response.toModel());
-    } else {
-      return Left(
-          Failure(code: 409, message: response.base?.message ?? 'biz error'));
+      if (response.base!.status == ApiInternalStatus.SUCCESS) {
+        return Right(response.toModel());
+      } else {
+        return Left(Failure(
+          code: response.base?.status ?? ApiInternalStatus.FAILURE,
+          message: response.base?.message ?? ResponseMessage.DEFAULT,
+        ));
+      }
+    } catch (error) {
+      return Left(ErrorHandler.handle(error).failure);
     }
   }
 }
