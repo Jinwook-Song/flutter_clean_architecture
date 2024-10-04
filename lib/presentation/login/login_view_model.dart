@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:clean_architecture/app/logging.dart';
 import 'package:clean_architecture/domain/usecase/login_usecase.dart';
 import 'package:clean_architecture/presentation/base/base_view_model.dart';
 import 'package:clean_architecture/presentation/common/data_classes.dart';
@@ -42,8 +43,8 @@ class LoginViewModel extends BaseViewModel
     ));
 
     response.fold(
-      (failure) => print(failure.message),
-      (data) => print(data.customer?.name),
+      (failure) => logging(failure.message),
+      (data) => logging(data.customer?.name),
     );
   }
 

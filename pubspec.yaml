@@ -25,6 +25,7 @@ dependencies:
   pretty_dio_logger: ^1.4.0
   shared_preferences: ^2.3.2
   device_info_plus: ^10.1.2
+  logger: ^2.4.0
 
 dev_dependencies:
   flutter_test:
