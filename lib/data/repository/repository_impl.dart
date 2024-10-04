@@ -1,13 +1,13 @@
 import 'package:clean_architecture/data/mapper/mapper.dart';
 import 'package:clean_architecture/data/network/error_handler.dart';
-import 'package:clean_architecture/domain/model.dart';
+import 'package:clean_architecture/domain/model/model.dart';
 import 'package:dartz/dartz.dart';
 
 import 'package:clean_architecture/data/data_source/remote_data_source.dart';
 import 'package:clean_architecture/data/network/failure.dart';
 import 'package:clean_architecture/data/network/network_info.dart';
 import 'package:clean_architecture/data/request/request.dart';
-import 'package:clean_architecture/domain/repository.dart';
+import 'package:clean_architecture/domain/repository/repository.dart';
 
 class RepositoryImpl implements Repository {
   final RemoteDataSource _remoteDataSource;

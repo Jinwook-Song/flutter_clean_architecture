@@ -3,7 +3,7 @@
 import 'package:clean_architecture/app/constant.dart';
 import 'package:clean_architecture/app/extensions.dart';
 import 'package:clean_architecture/data/reponses/responses.dart';
-import 'package:clean_architecture/domain/model.dart';
+import 'package:clean_architecture/domain/model/model.dart';
 
 extension CustomerResponseX on CustomerResponse? {
   Customer toModel() {
