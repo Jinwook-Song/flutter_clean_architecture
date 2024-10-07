@@ -1,3 +1,4 @@
+import 'package:clean_architecture/app/di.dart';
 import 'package:clean_architecture/presentation/forget_password/forget_password_screen.dart';
 import 'package:clean_architecture/presentation/login/login_screen.dart';
 import 'package:clean_architecture/presentation/main/main_screen.dart';
@@ -24,6 +25,7 @@ class RouteGenerator {
       case Routes.splashRoute:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case Routes.loginRoute:
+        initLoginModule();
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.onBoardingRoute:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());

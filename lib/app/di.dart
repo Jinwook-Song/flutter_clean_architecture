@@ -5,6 +5,8 @@ import 'package:clean_architecture/data/network/dio_factory.dart';
 import 'package:clean_architecture/data/network/network_info.dart';
 import 'package:clean_architecture/data/repository/repository_impl.dart';
 import 'package:clean_architecture/domain/repository/repository.dart';
+import 'package:clean_architecture/domain/usecase/login_usecase.dart';
+import 'package:clean_architecture/presentation/login/login_view_model.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -39,4 +41,14 @@ Future<void> initAppModule() async {
 
   instance.registerLazySingleton<Repository>(() => RepositoryImpl(
       instance.get<RemoteDataSource>(), instance.get<NetworkInfo>()));
+}
+
+initLoginModule() {
+  if (!GetIt.I.isRegistered<LoginUsecase>()) {
+    // registerFactory는 요청할 때마다 새로운 인스턴스를 생성
+    instance.registerFactory<LoginUsecase>(
+        () => LoginUsecase(instance.get<Repository>()));
+    instance.registerFactory<LoginViewModel>(
+        () => LoginViewModel(instance.get<LoginUsecase>()));
+  }
 }
