@@ -1,4 +1,3 @@
-import 'package:clean_architecture/app/logging.dart';
 import 'package:clean_architecture/presentation/login/login_view_model.dart';
 import 'package:clean_architecture/presentation/resources/assets_manager.dart';
 import 'package:clean_architecture/presentation/resources/color_manager.dart';
@@ -16,7 +15,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final LoginViewModel _loginViewModel = LoginViewModel(null);
+  final LoginViewModel _loginViewModel = LoginViewModel(_loginUsecase);
 
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -55,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       backgroundColor: ColorManager.white,
       body: Container(
-        padding: const EdgeInsets.only(top: AppPadding.p100),
+        padding: const EdgeInsets.only(top: AppPadding.p60),
         child: SingleChildScrollView(
           child: Form(
             key: _formKey,

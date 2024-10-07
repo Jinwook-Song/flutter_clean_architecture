@@ -7,7 +7,7 @@ import 'package:clean_architecture/presentation/common/data_classes.dart';
 
 class LoginViewModel extends BaseViewModel
     implements LoginViewModelInputs, LoginViewModelOutputs {
-  final LoginUsecase? _loginUsecase;
+  final LoginUsecase _loginUsecase;
 
   LoginViewModel(this._loginUsecase);
 
@@ -42,12 +42,12 @@ class LoginViewModel extends BaseViewModel
 
   @override
   login() async {
-    final response = await _loginUsecase?.execute(LoginUsecaseInput(
+    final response = await _loginUsecase.execute(LoginUsecaseInput(
       _loginObject.username,
       _loginObject.password,
     ));
 
-    response?.fold(
+    response.fold(
       (failure) => logging(failure.message),
       (data) => logging(data.customer?.name),
     );
