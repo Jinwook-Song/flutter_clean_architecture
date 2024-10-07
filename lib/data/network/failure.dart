@@ -1,9 +1,16 @@
-class Failure {
-  int code; // 200 or 400
-  String message; // error or success
+import 'package:clean_architecture/data/network/error_handler.dart';
 
-  Failure({
+class Failure {
+  final int code; // 200 or 400
+  final String message; // error or success
+
+  const Failure({
     required this.code,
     required this.message,
   });
+}
+
+class DefaultFailure extends Failure {
+  const DefaultFailure()
+      : super(code: ResponseCode.DEFAULT, message: ResponseMessage.DEFAULT);
 }

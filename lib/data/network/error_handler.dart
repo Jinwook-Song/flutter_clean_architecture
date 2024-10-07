@@ -70,51 +70,51 @@ extension DataSourceExtension on DataSource {
   Failure getFailure() {
     switch (this) {
       case DataSource.BAD_REQUEST:
-        return Failure(
+        return const Failure(
             code: ResponseCode.BAD_REQUEST,
             message: ResponseMessage.BAD_REQUEST);
       case DataSource.FORBIDDEN:
-        return Failure(
+        return const Failure(
             code: ResponseCode.FORBIDDEN, message: ResponseMessage.FORBIDDEN);
       case DataSource.UNAUTHORISED:
-        return Failure(
+        return const Failure(
             code: ResponseCode.UNAUTHORISED,
             message: ResponseMessage.UNAUTHORISED);
       case DataSource.NOT_FOUND:
-        return Failure(
+        return const Failure(
             code: ResponseCode.NOT_FOUND, message: ResponseMessage.NOT_FOUND);
       case DataSource.INTERNAL_SERVER_ERROR:
-        return Failure(
+        return const Failure(
             code: ResponseCode.INTERNAL_SERVER_ERROR,
             message: ResponseMessage.INTERNAL_SERVER_ERROR);
       case DataSource.CONNECT_TIMEOUT:
-        return Failure(
+        return const Failure(
             code: ResponseCode.CONNECT_TIMEOUT,
             message: ResponseMessage.CONNECT_TIMEOUT);
       case DataSource.CANCEL:
-        return Failure(
+        return const Failure(
             code: ResponseCode.CANCEL, message: ResponseMessage.CANCEL);
       case DataSource.RECEIVE_TIMEOUT:
-        return Failure(
+        return const Failure(
             code: ResponseCode.RECEIVE_TIMEOUT,
             message: ResponseMessage.RECEIVE_TIMEOUT);
       case DataSource.SEND_TIMEOUT:
-        return Failure(
+        return const Failure(
             code: ResponseCode.SEND_TIMEOUT,
             message: ResponseMessage.SEND_TIMEOUT);
       case DataSource.CACHE_ERROR:
-        return Failure(
+        return const Failure(
             code: ResponseCode.CACHE_ERROR,
             message: ResponseMessage.CACHE_ERROR);
       case DataSource.NO_INTERNET_CONNECTION:
-        return Failure(
+        return const Failure(
             code: ResponseCode.NO_INTERNET_CONNECTION,
             message: ResponseMessage.NO_INTERNET_CONNECTION);
       case DataSource.DEFAULT:
-        return Failure(
+        return const Failure(
             code: ResponseCode.DEFAULT, message: ResponseMessage.DEFAULT);
       default:
-        return Failure(
+        return const Failure(
             code: ResponseCode.DEFAULT, message: ResponseMessage.DEFAULT);
     }
   }

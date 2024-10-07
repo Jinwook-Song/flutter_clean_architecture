@@ -115,7 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             onPressed:
                                 !snapshot.hasData || snapshot.data == false
                                     ? null
-                                    : () {},
+                                    : _loginViewModel.login,
                             child: const Text(AppStrings.login)),
                       );
                     },
