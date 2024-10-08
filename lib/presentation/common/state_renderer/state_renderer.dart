@@ -26,7 +26,6 @@ enum StateRendererType {
 
 class StateRenderer extends StatelessWidget {
   final StateRendererType stateRendererType;
-  final Failure failure;
   final String title;
   final String message;
   final VoidCallback? retryAction;
@@ -34,7 +33,6 @@ class StateRenderer extends StatelessWidget {
   const StateRenderer({
     super.key,
     required this.stateRendererType,
-    this.failure = const DefaultFailure(),
     this.title = Constant.empty,
     this.message = AppStrings.loading,
     this.retryAction,
@@ -53,7 +51,7 @@ class StateRenderer extends StatelessWidget {
       case StateRendererType.POPUP_ERROR_STATE:
         return _getPopupDialog(context, children: [
           _getAnimatedImage(AnimationAssets.error),
-          _getMessage(failure.message),
+          _getMessage(message),
           _getRetryButton(context, AppStrings.ok)
         ]);
       case StateRendererType.POPUP_SUCCESS:
@@ -66,7 +64,7 @@ class StateRenderer extends StatelessWidget {
       case StateRendererType.FULL_SCREEN_ERROR_STATE:
         return _getItemsInColumn(children: [
           _getAnimatedImage(AnimationAssets.error),
-          _getMessage(failure.message),
+          _getMessage(message),
           _getRetryButton(context, AppStrings.retryAgain)
         ]);
       case StateRendererType.CONTENT_SCREEN_STATE:
