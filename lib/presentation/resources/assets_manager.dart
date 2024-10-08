@@ -1,4 +1,5 @@
 const String imgPath = 'assets/images';
+const String animationPath = 'assets/animations';
 
 class ImageAssets {
   static const String splashLogo = "$imgPath/splash_logo.png";
@@ -17,4 +18,10 @@ class ImageAssets {
   static const String contactUsIc = "$imgPath/contact_us_ic.svg";
   static const String inviteFriendsIc = "$imgPath/invite_friends_ic.svg";
   static const String logoutIc = "$imgPath/logout_ic.svg";
+}
+
+class AnimationAssets {
+  static const String loading = "$animationPath/loading.json";
+  static const String error = "$animationPath/error.json";
+  static const String empty = "$animationPath/empty.json";
 }
