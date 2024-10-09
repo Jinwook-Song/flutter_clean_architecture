@@ -9,7 +9,6 @@ import 'package:clean_architecture/presentation/resources/styles_manager.dart';
 import 'package:clean_architecture/presentation/resources/value_manager.dart';
 import 'package:flutter/material.dart';
 
-import 'package:clean_architecture/data/network/failure.dart';
 import 'package:lottie/lottie.dart';
 
 enum StateRendererType {
