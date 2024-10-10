@@ -70,7 +70,7 @@ extension FlowStateX on FlowState {
   Widget getScreenWidget(BuildContext context, Widget contentScreenWidget,
       VoidCallback retryAction) {
     switch (runtimeType) {
-      case LoadingState _:
+      case const (LoadingState):
         {
           if (getStateRendererType() == StateRendererType.POPUP_LOADING_STATE) {
             // showing popup dialog
@@ -85,7 +85,7 @@ extension FlowStateX on FlowState {
             );
           }
         }
-      case ErrorState _:
+      case const (ErrorState):
         {
           dismissDialog(context);
           if (getStateRendererType() == StateRendererType.POPUP_ERROR_STATE) {
@@ -101,12 +101,12 @@ extension FlowStateX on FlowState {
             );
           }
         }
-      case ContentState _:
+      case const (ContentState):
         {
           dismissDialog(context);
           return contentScreenWidget;
         }
-      case EmptyState _:
+      case const (EmptyState):
         {
           return StateRenderer(
             stateRendererType: getStateRendererType(),

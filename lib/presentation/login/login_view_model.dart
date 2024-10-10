@@ -52,7 +52,7 @@ class LoginViewModel extends BaseViewModel
 
     response.fold(
       (failure) => inputState.add(ErrorState(
-          stateRendererType: StateRendererType.FULL_SCREEN_ERROR_STATE,
+          stateRendererType: StateRendererType.POPUP_ERROR_STATE,
           message: failure.message)),
       (data) => inputState.add(ContentState()),
     );
