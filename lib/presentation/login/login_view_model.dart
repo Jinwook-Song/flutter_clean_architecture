@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:clean_architecture/app/logging.dart';
 import 'package:clean_architecture/domain/usecase/login_usecase.dart';
 import 'package:clean_architecture/presentation/base/base_view_model.dart';
 import 'package:clean_architecture/presentation/common/data_classes.dart';
+import 'package:clean_architecture/presentation/common/state_renderer/state_renderer.dart';
 import 'package:clean_architecture/presentation/common/state_renderer/state_renderer_impl.dart';
 
 class LoginViewModel extends BaseViewModel
@@ -43,14 +43,18 @@ class LoginViewModel extends BaseViewModel
 
   @override
   login() async {
+    inputState.add(LoadingState(
+        stateRendererType: StateRendererType.FULL_SCREEN_LOADING_STATE));
     final response = await _loginUsecase.execute(LoginUsecaseInput(
       _loginObject.username,
       _loginObject.password,
     ));
 
     response.fold(
-      (failure) => logging(failure.message),
-      (data) => logging(data.customer?.name),
+      (failure) => inputState.add(ErrorState(
+          stateRendererType: StateRendererType.FULL_SCREEN_ERROR_STATE,
+          message: failure.message)),
+      (data) => inputState.add(ContentState()),
     );
   }
 

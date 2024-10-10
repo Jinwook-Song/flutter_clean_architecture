@@ -1,5 +1,4 @@
 import 'package:clean_architecture/app/di.dart';
-import 'package:clean_architecture/presentation/base/base_view_model.dart';
 import 'package:clean_architecture/presentation/common/state_renderer/state_renderer_impl.dart';
 import 'package:clean_architecture/presentation/login/login_view_model.dart';
 import 'package:clean_architecture/presentation/resources/assets_manager.dart';
