@@ -1,4 +1,6 @@
 import 'package:clean_architecture/app/di.dart';
+import 'package:clean_architecture/presentation/base/base_view_model.dart';
+import 'package:clean_architecture/presentation/common/state_renderer/state_renderer_impl.dart';
 import 'package:clean_architecture/presentation/login/login_view_model.dart';
 import 'package:clean_architecture/presentation/resources/assets_manager.dart';
 import 'package:clean_architecture/presentation/resources/color_manager.dart';
@@ -48,114 +50,124 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return _getContentWidget();
+    return Scaffold(
+      backgroundColor: ColorManager.white,
+      body: StreamBuilder<FlowState>(
+        stream: _loginViewModel.outputState,
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) return _getContentWidget();
+
+          return snapshot.data!.getScreenWidget(
+            context,
+            _getContentWidget(),
+            _loginViewModel.login,
+          );
+        },
+      ),
+    );
   }
 
   Widget _getContentWidget() {
-    return Scaffold(
-      backgroundColor: ColorManager.white,
-      body: Container(
-        padding: const EdgeInsets.only(top: AppPadding.p60),
-        child: SingleChildScrollView(
-          child: Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                Image.asset(
-                  ImageAssets.splashLogo,
-                ),
-                const Gap(AppSize.s28),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: AppSize.s28),
-                  child: StreamBuilder(
-                    stream: _loginViewModel.isUsernameValid,
-                    builder: (context, snapshot) {
-                      final isValid = snapshot.data ?? true;
-                      return TextFormField(
-                        keyboardType: TextInputType.emailAddress,
-                        controller: _usernameController,
-                        decoration: InputDecoration(
-                          hintText: AppStrings.username,
-                          labelText: AppStrings.username,
-                          errorText: isValid ? null : AppStrings.usernameError,
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                const Gap(AppSize.s28),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: AppSize.s28),
-                  child: StreamBuilder(
-                    stream: _loginViewModel.isPasswordValid,
-                    builder: (context, snapshot) {
-                      final isValid = snapshot.data ?? true;
-                      return TextFormField(
-                        keyboardType: TextInputType.visiblePassword,
-                        controller: _passwordController,
-                        decoration: InputDecoration(
-                          hintText: AppStrings.password,
-                          labelText: AppStrings.password,
-                          errorText: isValid ? null : AppStrings.passwordError,
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                const Gap(AppSize.s28),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: AppSize.s28),
-                  child: StreamBuilder(
-                    stream: _loginViewModel.isAllValid,
-                    builder: (context, snapshot) {
-                      return SizedBox(
-                        width: double.infinity,
-                        height: AppSize.s40,
-                        child: ElevatedButton(
-                            onPressed:
-                                !snapshot.hasData || snapshot.data == false
-                                    ? null
-                                    : _loginViewModel.login,
-                            child: const Text(AppStrings.login)),
-                      );
-                    },
-                  ),
-                ),
-                const Gap(AppSize.s8),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: AppSize.s28),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pushReplacementNamed(
-                            context,
-                            Routes.forgotPasswordRoute,
-                          );
-                        },
-                        child: Text(
-                          AppStrings.forgetPassword,
-                          style: Theme.of(context).textTheme.titleSmall,
-                        ),
+    return Container(
+      padding: const EdgeInsets.only(top: AppPadding.p60),
+      child: SingleChildScrollView(
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              Image.asset(
+                ImageAssets.splashLogo,
+              ),
+              const Gap(AppSize.s28),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: AppSize.s28),
+                child: StreamBuilder(
+                  stream: _loginViewModel.isUsernameValid,
+                  builder: (context, snapshot) {
+                    final isValid = snapshot.data ?? true;
+                    return TextFormField(
+                      keyboardType: TextInputType.emailAddress,
+                      controller: _usernameController,
+                      decoration: InputDecoration(
+                        hintText: AppStrings.username,
+                        labelText: AppStrings.username,
+                        errorText: isValid ? null : AppStrings.usernameError,
                       ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pushReplacementNamed(
-                            context,
-                            Routes.registerRoute,
-                          );
-                        },
-                        child: Text(
-                          AppStrings.registerText,
-                          style: Theme.of(context).textTheme.titleSmall,
-                        ),
-                      ),
-                    ],
-                  ),
+                    );
+                  },
                 ),
-              ],
-            ),
+              ),
+              const Gap(AppSize.s28),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: AppSize.s28),
+                child: StreamBuilder(
+                  stream: _loginViewModel.isPasswordValid,
+                  builder: (context, snapshot) {
+                    final isValid = snapshot.data ?? true;
+                    return TextFormField(
+                      keyboardType: TextInputType.visiblePassword,
+                      controller: _passwordController,
+                      decoration: InputDecoration(
+                        hintText: AppStrings.password,
+                        labelText: AppStrings.password,
+                        errorText: isValid ? null : AppStrings.passwordError,
+                      ),
+                    );
+                  },
+                ),
+              ),
+              const Gap(AppSize.s28),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: AppSize.s28),
+                child: StreamBuilder(
+                  stream: _loginViewModel.isAllValid,
+                  builder: (context, snapshot) {
+                    return SizedBox(
+                      width: double.infinity,
+                      height: AppSize.s40,
+                      child: ElevatedButton(
+                          onPressed: !snapshot.hasData || snapshot.data == false
+                              ? null
+                              : _loginViewModel.login,
+                          child: const Text(AppStrings.login)),
+                    );
+                  },
+                ),
+              ),
+              const Gap(AppSize.s8),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: AppSize.s28),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(
+                          context,
+                          Routes.forgotPasswordRoute,
+                        );
+                      },
+                      child: Text(
+                        AppStrings.forgetPassword,
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(
+                          context,
+                          Routes.registerRoute,
+                        );
+                      },
+                      child: Text(
+                        AppStrings.registerText,
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),
