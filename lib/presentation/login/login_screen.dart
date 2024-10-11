@@ -7,6 +7,7 @@ import 'package:clean_architecture/presentation/resources/routes_manager.dart';
 import 'package:clean_architecture/presentation/resources/strings_manager.dart';
 import 'package:clean_architecture/presentation/resources/value_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:gap/gap.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -45,6 +46,13 @@ class _LoginScreenState extends State<LoginScreen> {
     _passwordController.addListener(
       () => _loginViewModel.setPassword(_passwordController.text),
     );
+
+    _loginViewModel.isLoggedInController.stream.listen((isLoggedIn) {
+      SchedulerBinding.instance.addPostFrameCallback((_) {
+        // navigato to main
+        Navigator.of(context).pushReplacementNamed(Routes.mainRoute);
+      });
+    });
   }
 
   @override

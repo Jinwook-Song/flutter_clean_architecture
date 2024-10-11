@@ -15,11 +15,11 @@ class LoginUsecase implements BaseUsecase<LoginUsecaseInput, Authentication> {
       LoginUsecaseInput input) async {
     final deviceInfo = await getDeviceInfo();
     return await _repository.login(LoginRequest(
-      email: input.email,
-      password: input.password,
-      imei: deviceInfo.identifier,
-      deviceType: deviceInfo.name,
-    ));
+        email: input.email,
+        password: input.password,
+        imei: '', // deviceInfo.identifier,
+        deviceType: '' // deviceInfo.name,
+        ));
   }
 }
 
