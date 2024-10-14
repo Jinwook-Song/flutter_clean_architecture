@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:clean_architecture/app/app_prefs.dart';
+import 'package:clean_architecture/app/di.dart';
 import 'package:clean_architecture/presentation/resources/assets_manager.dart';
 import 'package:clean_architecture/presentation/resources/color_manager.dart';
 import 'package:clean_architecture/presentation/resources/routes_manager.dart';
@@ -13,6 +15,8 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final AppPreferences _appPreferences = instance.get<AppPreferences>();
+
   Timer? _timer;
 
   @override
@@ -32,7 +36,15 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   _goNext() {
-    Navigator.pushReplacementNamed(context, Routes.onBoardingRoute);
+    if (_appPreferences.isUserLoggedIn()) {
+      Navigator.pushReplacementNamed(context, Routes.mainRoute);
+    } else {
+      if (_appPreferences.isOnboardingViewed()) {
+        Navigator.pushReplacementNamed(context, Routes.loginRoute);
+      } else {
+        Navigator.pushReplacementNamed(context, Routes.onBoardingRoute);
+      }
+    }
   }
 
   @override

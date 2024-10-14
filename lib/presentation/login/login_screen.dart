@@ -1,3 +1,4 @@
+import 'package:clean_architecture/app/app_prefs.dart';
 import 'package:clean_architecture/app/di.dart';
 import 'package:clean_architecture/presentation/common/state_renderer/state_renderer_impl.dart';
 import 'package:clean_architecture/presentation/login/login_view_model.dart';
@@ -19,6 +20,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final LoginViewModel _loginViewModel = instance.get<LoginViewModel>();
+  final AppPreferences _appPreferences = instance.get<AppPreferences>();
 
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -50,6 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
     _loginViewModel.isLoggedInController.stream.listen((isLoggedIn) {
       SchedulerBinding.instance.addPostFrameCallback((_) {
         // navigato to main
+        _appPreferences.setIsUserLoggedIn();
         Navigator.of(context).pushReplacementNamed(Routes.mainRoute);
       });
     });

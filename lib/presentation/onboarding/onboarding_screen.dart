@@ -1,3 +1,5 @@
+import 'package:clean_architecture/app/app_prefs.dart';
+import 'package:clean_architecture/app/di.dart';
 import 'package:clean_architecture/domain/model/model.dart';
 import 'package:clean_architecture/presentation/onboarding/onboarding_view_model.dart';
 import 'package:clean_architecture/presentation/resources/assets_manager.dart';
@@ -18,13 +20,25 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
-  final OnboardingViewModel _viewModel = OnboardingViewModel()..start();
+  final OnboardingViewModel _viewModel = OnboardingViewModel();
+  final AppPreferences _appPreferences = instance.get<AppPreferences>();
+
+  @override
+  void initState() {
+    super.initState();
+    _bind();
+  }
 
   @override
   void dispose() {
     _pageController.dispose();
     _viewModel.dispose();
     super.dispose();
+  }
+
+  _bind() {
+    _appPreferences.setOnboardingViewed();
+    _viewModel.start();
   }
 
   @override
