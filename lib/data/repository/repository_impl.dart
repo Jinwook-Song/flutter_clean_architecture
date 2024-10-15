@@ -42,8 +42,29 @@ class RepositoryImpl implements Repository {
   }
 
   @override
-  Future<Either<Failure, Authentication>> register(RegisterRequest request) {
-    // TODO: implement register
-    throw UnimplementedError();
+  Future<Either<Failure, Authentication>> register(
+      RegisterRequest request) async {
+    if (!await _networkInfo.isConnected) {
+      return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+    }
+
+    try {
+      final response = await _remoteDataSource.register(request);
+
+      if (response.base == null) {
+        return Left(DataSource.INTERNAL_SERVER_ERROR.getFailure());
+      }
+
+      if (response.base!.status == ApiInternalStatus.SUCCESS) {
+        return Right(response.toModel());
+      } else {
+        return Left(Failure(
+          code: response.base?.status ?? ApiInternalStatus.FAILURE,
+          message: response.base?.message ?? ResponseMessage.DEFAULT,
+        ));
+      }
+    } catch (error) {
+      return Left(ErrorHandler.handle(error).failure);
+    }
   }
 }
