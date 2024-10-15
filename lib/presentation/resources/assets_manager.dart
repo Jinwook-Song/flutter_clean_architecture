@@ -24,4 +24,5 @@ class AnimationAssets {
   static const String loading = "$animationPath/loading.json";
   static const String error = "$animationPath/error.json";
   static const String empty = "$animationPath/empty.json";
+  static const String success = "$animationPath/success.json";
 }

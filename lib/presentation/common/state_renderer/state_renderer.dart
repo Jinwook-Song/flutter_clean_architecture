@@ -54,7 +54,12 @@ class StateRenderer extends StatelessWidget {
           _getRetryButton(context, AppStrings.ok)
         ]);
       case StateRendererType.POPUP_SUCCESS:
-      // TODO: Handle this case.
+        return _getPopupDialog(context, children: [
+          _getAnimatedImage(AnimationAssets.success),
+          _getMessage(title),
+          _getMessage(message),
+          _getRetryButton(context, AppStrings.ok)
+        ]);
       case StateRendererType.FULL_SCREEN_LOADING_STATE:
         return _getItemsInColumn(children: [
           _getAnimatedImage(AnimationAssets.loading),

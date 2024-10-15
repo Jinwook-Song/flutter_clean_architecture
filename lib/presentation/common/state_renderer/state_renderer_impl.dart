@@ -59,11 +59,24 @@ class EmptyState extends FlowState {
   EmptyState({required this.message});
 
   @override
-  String getMessage() => Constant.empty;
+  String getMessage() => message;
 
   @override
   StateRendererType getStateRendererType() =>
       StateRendererType.EMPTY_SCREEN_STATE;
+}
+
+// Success State
+class SuccessState extends FlowState {
+  final String message;
+
+  SuccessState({required this.message});
+
+  @override
+  String getMessage() => message;
+
+  @override
+  StateRendererType getStateRendererType() => StateRendererType.POPUP_SUCCESS;
 }
 
 extension FlowStateX on FlowState {
@@ -100,6 +113,12 @@ extension FlowStateX on FlowState {
               retryAction: retryAction,
             );
           }
+        }
+      case const (SuccessState):
+        {
+          dismissDialog(context);
+          showPopUp(context, getStateRendererType(), getMessage());
+          return contentScreenWidget;
         }
       case const (ContentState):
         {
