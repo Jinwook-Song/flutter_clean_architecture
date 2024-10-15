@@ -40,4 +40,10 @@ class RepositoryImpl implements Repository {
       return Left(ErrorHandler.handle(error).failure);
     }
   }
+
+  @override
+  Future<Either<Failure, Authentication>> register(RegisterRequest request) {
+    // TODO: implement register
+    throw UnimplementedError();
+  }
 }
