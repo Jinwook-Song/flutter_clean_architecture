@@ -16,4 +16,14 @@ abstract class AppServiceClient {
     @Field('imei') String imei,
     @Field('deviceType') String deviceType,
   );
+
+  @POST('/customers/register')
+  Future<AuthResponse> register(
+    @Field('country_mobile_code') String countryMobileCode,
+    @Field('name') String name,
+    @Field('email') String email,
+    @Field('password') String password,
+    @Field('mobile_number') String mobileNumber,
+    @Field('avatar') String avatar,
+  );
 }
