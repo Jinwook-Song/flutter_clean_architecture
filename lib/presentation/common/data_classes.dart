@@ -13,3 +13,18 @@ class LoginObject with _$LoginObject {
   factory LoginObject.fromJson(Map<String, dynamic> json) =>
       _$LoginObjectFromJson(json);
 }
+
+@freezed
+class RegisterObject with _$RegisterObject {
+  const factory RegisterObject({
+    @Default('') String countryMobileCode,
+    @Default('') String name,
+    @Default('') String email,
+    @Default('') String password,
+    @Default('') String mobileNumber,
+    @Default('') String avatar,
+  }) = _RegisterObject;
+
+  factory RegisterObject.fromJson(Map<String, dynamic> json) =>
+      _$RegisterObjectFromJson(json);
+}

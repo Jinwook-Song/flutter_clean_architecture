@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:clean_architecture/domain/usecase/register_usecase.dart';
 import 'package:clean_architecture/presentation/base/base_view_model.dart';
+import 'package:clean_architecture/presentation/common/data_classes.dart';
 
 class RegisterViewModel extends BaseViewModel
     implements RegisterViewModelInputs, RegisterViewModelOutputs {
@@ -19,6 +20,8 @@ class RegisterViewModel extends BaseViewModel
   final StreamController<File> _avatarController = StreamController.broadcast();
   final StreamController<void> _isAllValidController =
       StreamController.broadcast();
+
+  final RegisterObject _registerObject = const RegisterObject();
 
   @override
   void start() {

@@ -183,3 +183,267 @@ abstract class _LoginObject implements LoginObject {
   _$$LoginObjectImplCopyWith<_$LoginObjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+RegisterObject _$RegisterObjectFromJson(Map<String, dynamic> json) {
+  return _RegisterObject.fromJson(json);
+}
+
+/// @nodoc
+mixin _$RegisterObject {
+  String get countryMobileCode => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
+  String get mobileNumber => throw _privateConstructorUsedError;
+  String get avatar => throw _privateConstructorUsedError;
+
+  /// Serializes this RegisterObject to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of RegisterObject
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $RegisterObjectCopyWith<RegisterObject> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RegisterObjectCopyWith<$Res> {
+  factory $RegisterObjectCopyWith(
+          RegisterObject value, $Res Function(RegisterObject) then) =
+      _$RegisterObjectCopyWithImpl<$Res, RegisterObject>;
+  @useResult
+  $Res call(
+      {String countryMobileCode,
+      String name,
+      String email,
+      String password,
+      String mobileNumber,
+      String avatar});
+}
+
+/// @nodoc
+class _$RegisterObjectCopyWithImpl<$Res, $Val extends RegisterObject>
+    implements $RegisterObjectCopyWith<$Res> {
+  _$RegisterObjectCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of RegisterObject
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? countryMobileCode = null,
+    Object? name = null,
+    Object? email = null,
+    Object? password = null,
+    Object? mobileNumber = null,
+    Object? avatar = null,
+  }) {
+    return _then(_value.copyWith(
+      countryMobileCode: null == countryMobileCode
+          ? _value.countryMobileCode
+          : countryMobileCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      mobileNumber: null == mobileNumber
+          ? _value.mobileNumber
+          : mobileNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      avatar: null == avatar
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$RegisterObjectImplCopyWith<$Res>
+    implements $RegisterObjectCopyWith<$Res> {
+  factory _$$RegisterObjectImplCopyWith(_$RegisterObjectImpl value,
+          $Res Function(_$RegisterObjectImpl) then) =
+      __$$RegisterObjectImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String countryMobileCode,
+      String name,
+      String email,
+      String password,
+      String mobileNumber,
+      String avatar});
+}
+
+/// @nodoc
+class __$$RegisterObjectImplCopyWithImpl<$Res>
+    extends _$RegisterObjectCopyWithImpl<$Res, _$RegisterObjectImpl>
+    implements _$$RegisterObjectImplCopyWith<$Res> {
+  __$$RegisterObjectImplCopyWithImpl(
+      _$RegisterObjectImpl _value, $Res Function(_$RegisterObjectImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of RegisterObject
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? countryMobileCode = null,
+    Object? name = null,
+    Object? email = null,
+    Object? password = null,
+    Object? mobileNumber = null,
+    Object? avatar = null,
+  }) {
+    return _then(_$RegisterObjectImpl(
+      countryMobileCode: null == countryMobileCode
+          ? _value.countryMobileCode
+          : countryMobileCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      mobileNumber: null == mobileNumber
+          ? _value.mobileNumber
+          : mobileNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      avatar: null == avatar
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$RegisterObjectImpl implements _RegisterObject {
+  const _$RegisterObjectImpl(
+      {this.countryMobileCode = '',
+      this.name = '',
+      this.email = '',
+      this.password = '',
+      this.mobileNumber = '',
+      this.avatar = ''});
+
+  factory _$RegisterObjectImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RegisterObjectImplFromJson(json);
+
+  @override
+  @JsonKey()
+  final String countryMobileCode;
+  @override
+  @JsonKey()
+  final String name;
+  @override
+  @JsonKey()
+  final String email;
+  @override
+  @JsonKey()
+  final String password;
+  @override
+  @JsonKey()
+  final String mobileNumber;
+  @override
+  @JsonKey()
+  final String avatar;
+
+  @override
+  String toString() {
+    return 'RegisterObject(countryMobileCode: $countryMobileCode, name: $name, email: $email, password: $password, mobileNumber: $mobileNumber, avatar: $avatar)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RegisterObjectImpl &&
+            (identical(other.countryMobileCode, countryMobileCode) ||
+                other.countryMobileCode == countryMobileCode) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.mobileNumber, mobileNumber) ||
+                other.mobileNumber == mobileNumber) &&
+            (identical(other.avatar, avatar) || other.avatar == avatar));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, countryMobileCode, name, email,
+      password, mobileNumber, avatar);
+
+  /// Create a copy of RegisterObject
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RegisterObjectImplCopyWith<_$RegisterObjectImpl> get copyWith =>
+      __$$RegisterObjectImplCopyWithImpl<_$RegisterObjectImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RegisterObjectImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _RegisterObject implements RegisterObject {
+  const factory _RegisterObject(
+      {final String countryMobileCode,
+      final String name,
+      final String email,
+      final String password,
+      final String mobileNumber,
+      final String avatar}) = _$RegisterObjectImpl;
+
+  factory _RegisterObject.fromJson(Map<String, dynamic> json) =
+      _$RegisterObjectImpl.fromJson;
+
+  @override
+  String get countryMobileCode;
+  @override
+  String get name;
+  @override
+  String get email;
+  @override
+  String get password;
+  @override
+  String get mobileNumber;
+  @override
+  String get avatar;
+
+  /// Create a copy of RegisterObject
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RegisterObjectImplCopyWith<_$RegisterObjectImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
