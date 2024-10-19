@@ -21,7 +21,7 @@ class RegisterViewModel extends BaseViewModel
   final StreamController<void> _isAllValidController =
       StreamController.broadcast();
 
-  final RegisterObject _registerObject = const RegisterObject();
+  RegisterObject _registerObject = const RegisterObject();
 
   @override
   void start() {
@@ -50,10 +50,73 @@ class RegisterViewModel extends BaseViewModel
   Sink get inputPassword => _passwordController.sink;
   @override
   Sink get inputAvatar => _avatarController.sink;
+  @override
+  Sink get inputAllValid => _isAllValidController.sink;
 
   @override
   register() {
     throw UnimplementedError();
+  }
+
+  @override
+  setName(String name) {
+    if (_isNameValid(name)) {
+      _registerObject = _registerObject.copyWith(name: name);
+    } else {
+      _registerObject = _registerObject.copyWith(name: '');
+    }
+    _validate();
+  }
+
+  @override
+  setMobileNumber(String mobileNumber) {
+    if (_isMobileNumberValid(mobileNumber)) {
+      _registerObject = _registerObject.copyWith(mobileNumber: mobileNumber);
+    } else {
+      _registerObject = _registerObject.copyWith(mobileNumber: '');
+    }
+    _validate();
+  }
+
+  @override
+  setEmail(String email) {
+    if (_isEmailValid(email)) {
+      _registerObject = _registerObject.copyWith(email: email);
+    } else {
+      _registerObject = _registerObject.copyWith(email: '');
+    }
+    _validate();
+  }
+
+  @override
+  setPassword(String password) {
+    if (_isPasswordValid(password)) {
+      _registerObject = _registerObject.copyWith(password: password);
+    } else {
+      _registerObject = _registerObject.copyWith(password: '');
+    }
+    _validate();
+  }
+
+  @override
+  setCountryCode(String countryCode) {
+    if (countryCode.isNotEmpty) {
+      _registerObject =
+          _registerObject.copyWith(countryMobileCode: countryCode);
+    } else {
+      _registerObject = _registerObject.copyWith(countryMobileCode: '');
+    }
+    _validate();
+  }
+
+  @override
+  setAvatar(File file) {
+    if (file.path.isNotEmpty) {
+      _registerObject = _registerObject.copyWith(avatar: file.path);
+    } else {
+      _registerObject = _registerObject.copyWith(avatar: '');
+    }
+    _validate();
   }
 
   // outputs
@@ -87,22 +150,44 @@ class RegisterViewModel extends BaseViewModel
   @override
   Stream<File> get isAvatarValid => _avatarController.stream;
 
+  @override
+  Stream<bool> get isAllValid =>
+      _isAllValidController.stream.map((_) => _isAllValid());
+
   // private methods
   bool _isNameValid(String name) => name.length > 4;
   bool _isEmailValid(String email) =>
       RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(email);
   bool _isMobileNumberValid(String number) => number.length >= 10;
   bool _isPasswordValid(String password) => password.length >= 6;
+  bool _isAllValid() {
+    return _registerObject.avatar.isNotEmpty &&
+        _registerObject.countryMobileCode.isNotEmpty &&
+        _registerObject.email.isNotEmpty &&
+        _registerObject.mobileNumber.isNotEmpty &&
+        _registerObject.name.isNotEmpty &&
+        _registerObject.password.isNotEmpty;
+  }
+
+  _validate() => inputAllValid.add(null);
 }
 
 abstract class RegisterViewModelInputs {
   register();
+
+  setName(String name);
+  setCountryCode(String countryCode);
+  setMobileNumber(String mobileNumber);
+  setEmail(String email);
+  setPassword(String password);
+  setAvatar(File file);
 
   Sink get inputName;
   Sink get inputMobileNumber;
   Sink get inputEmail;
   Sink get inputPassword;
   Sink get inputAvatar;
+  Sink get inputAllValid;
 }
 
 abstract class RegisterViewModelOutputs {
@@ -119,4 +204,6 @@ abstract class RegisterViewModelOutputs {
   Stream<String?> get errorPassword;
 
   Stream<File> get isAvatarValid;
+
+  Stream<bool> get isAllValid;
 }
