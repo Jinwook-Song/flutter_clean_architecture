@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:clean_architecture/domain/usecase/register_usecase.dart';
 import 'package:clean_architecture/presentation/base/base_view_model.dart';
 import 'package:clean_architecture/presentation/common/data_classes.dart';
+import 'package:clean_architecture/presentation/common/state_renderer/state_renderer.dart';
+import 'package:clean_architecture/presentation/common/state_renderer/state_renderer_impl.dart';
 
 class RegisterViewModel extends BaseViewModel
     implements RegisterViewModelInputs, RegisterViewModelOutputs {
@@ -25,7 +27,7 @@ class RegisterViewModel extends BaseViewModel
 
   @override
   void start() {
-    // TODO: implement start
+    inputState.add(ContentState());
   }
 
   @override
@@ -37,6 +39,28 @@ class RegisterViewModel extends BaseViewModel
     _passwordController.close();
     _avatarController.close();
     super.dispose();
+  }
+
+  @override
+  register() async {
+    inputState.add(LoadingState(
+        stateRendererType: StateRendererType.FULL_SCREEN_LOADING_STATE));
+    final response = await _registerUsecase.execute(RegisterUsecaseInput(
+        countryMobileCode: _registerObject.countryMobileCode,
+        name: _registerObject.name,
+        email: _registerObject.email,
+        password: _registerObject.password,
+        mobileNumber: _registerObject.mobileNumber,
+        avatar: _registerObject.avatar));
+
+    response.fold(
+      (failure) => inputState.add(ErrorState(
+          stateRendererType: StateRendererType.POPUP_ERROR_STATE,
+          message: failure.message)),
+      (data) {
+        inputState.add(ContentState());
+      },
+    );
   }
 
   // inputs
@@ -52,11 +76,6 @@ class RegisterViewModel extends BaseViewModel
   Sink get inputAvatar => _avatarController.sink;
   @override
   Sink get inputAllValid => _isAllValidController.sink;
-
-  @override
-  register() {
-    throw UnimplementedError();
-  }
 
   @override
   setName(String name) {

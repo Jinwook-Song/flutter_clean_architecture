@@ -35,14 +35,6 @@ class LoginViewModel extends BaseViewModel
     isLoggedInController.close();
   }
 
-  // Inputs
-  @override
-  Sink get inputUsername => _usernameController.sink;
-  @override
-  Sink get inputPassword => _passwordController.sink;
-  @override
-  Sink get inputIsAllValid => _isValidAllController.sink;
-
   @override
   login() async {
     inputState.add(LoadingState(
@@ -62,6 +54,14 @@ class LoginViewModel extends BaseViewModel
       },
     );
   }
+
+  // Inputs
+  @override
+  Sink get inputUsername => _usernameController.sink;
+  @override
+  Sink get inputPassword => _passwordController.sink;
+  @override
+  Sink get inputIsAllValid => _isValidAllController.sink;
 
   @override
   setUsername(String username) {
