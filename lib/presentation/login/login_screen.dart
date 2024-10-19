@@ -49,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
       () => _loginViewModel.setPassword(_passwordController.text),
     );
 
-    _loginViewModel.isLoggedInController.stream.listen((isLoggedIn) {
+    _loginViewModel.isSuccessController.stream.listen((isLoggedIn) {
       SchedulerBinding.instance.addPostFrameCallback((_) {
         // navigato to main
         _appPreferences.setIsUserLoggedIn();
@@ -164,7 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushReplacementNamed(
+                        Navigator.pushNamed(
                           context,
                           Routes.registerRoute,
                         );

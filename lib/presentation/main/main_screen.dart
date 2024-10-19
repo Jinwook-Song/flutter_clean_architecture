@@ -1,3 +1,4 @@
+import 'package:clean_architecture/presentation/resources/color_manager.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
@@ -5,6 +6,9 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      backgroundColor: ColorManager.white,
+      appBar: AppBar(),
+    );
   }
 }

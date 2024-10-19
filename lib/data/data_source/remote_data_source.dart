@@ -25,12 +25,13 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   @override
   Future<AuthResponse> register(RegisterRequest registerRequest) async {
     return await _appServiceClient.register(
-      registerRequest.countryMobileCode,
-      registerRequest.name,
-      registerRequest.email,
-      registerRequest.password,
-      registerRequest.mobileNumber,
-      registerRequest.avatar,
-    );
+        registerRequest.countryMobileCode,
+        registerRequest.name,
+        registerRequest.email,
+        registerRequest.password,
+        registerRequest.mobileNumber,
+        ''
+        // registerRequest.avatar,
+        );
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:clean_architecture/app/logging.dart';
 import 'package:clean_architecture/domain/usecase/register_usecase.dart';
 import 'package:clean_architecture/presentation/base/base_view_model.dart';
 import 'package:clean_architecture/presentation/common/data_classes.dart';
@@ -23,6 +24,8 @@ class RegisterViewModel extends BaseViewModel
   final StreamController<void> _isAllValidController =
       StreamController.broadcast();
 
+  final StreamController<bool> isSuccessController = StreamController();
+
   RegisterObject _registerObject = const RegisterObject();
 
   @override
@@ -38,6 +41,7 @@ class RegisterViewModel extends BaseViewModel
     _emailController.close();
     _passwordController.close();
     _avatarController.close();
+    isSuccessController.close();
     super.dispose();
   }
 
@@ -59,6 +63,7 @@ class RegisterViewModel extends BaseViewModel
           message: failure.message)),
       (data) {
         inputState.add(ContentState());
+        isSuccessController.add(true);
       },
     );
   }
@@ -79,6 +84,7 @@ class RegisterViewModel extends BaseViewModel
 
   @override
   setName(String name) {
+    _nameController.add(name);
     if (_isNameValid(name)) {
       _registerObject = _registerObject.copyWith(name: name);
     } else {
@@ -89,6 +95,7 @@ class RegisterViewModel extends BaseViewModel
 
   @override
   setMobileNumber(String mobileNumber) {
+    _mobileNumberController.add(mobileNumber);
     if (_isMobileNumberValid(mobileNumber)) {
       _registerObject = _registerObject.copyWith(mobileNumber: mobileNumber);
     } else {
@@ -99,6 +106,7 @@ class RegisterViewModel extends BaseViewModel
 
   @override
   setEmail(String email) {
+    _emailController.add(email);
     if (_isEmailValid(email)) {
       _registerObject = _registerObject.copyWith(email: email);
     } else {
@@ -109,6 +117,7 @@ class RegisterViewModel extends BaseViewModel
 
   @override
   setPassword(String password) {
+    _passwordController.add(password);
     if (_isPasswordValid(password)) {
       _registerObject = _registerObject.copyWith(password: password);
     } else {
@@ -130,6 +139,7 @@ class RegisterViewModel extends BaseViewModel
 
   @override
   setAvatar(File file) {
+    _avatarController.add(file);
     if (file.path.isNotEmpty) {
       _registerObject = _registerObject.copyWith(avatar: file.path);
     } else {
@@ -140,7 +150,8 @@ class RegisterViewModel extends BaseViewModel
 
   // outputs
   @override
-  Stream<bool> get isNameValid => _nameController.stream.map(_isNameValid);
+  Stream<bool> get isNameValid =>
+      _nameController.stream.map((name) => _isNameValid(name));
   @override
   Stream<String?> get errorName =>
       isNameValid.map((valid) => valid ? null : 'Invalid name');
@@ -177,7 +188,7 @@ class RegisterViewModel extends BaseViewModel
   bool _isNameValid(String name) => name.length > 4;
   bool _isEmailValid(String email) =>
       RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(email);
-  bool _isMobileNumberValid(String number) => number.length >= 10;
+  bool _isMobileNumberValid(String number) => number.length >= 9;
   bool _isPasswordValid(String password) => password.length >= 6;
   bool _isAllValid() {
     return _registerObject.avatar.isNotEmpty &&
