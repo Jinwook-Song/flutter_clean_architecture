@@ -4,12 +4,12 @@ import 'package:clean_architecture/domain/repository/repository.dart';
 import 'package:clean_architecture/domain/usecase/base_usecase.dart';
 import 'package:dartz/dartz.dart';
 
-class HomeUsecase implements BaseUsecase<void, HomeObject> {
+class HomeUsecase implements BaseUsecase<NoParams, HomeObject> {
   final Repository _repository;
   HomeUsecase(this._repository);
 
   @override
-  Future<Either<Failure, HomeObject>> execute(void input) async {
+  Future<Either<Failure, HomeObject>> execute(NoParams input) async {
     return await _repository.getHome();
   }
 }

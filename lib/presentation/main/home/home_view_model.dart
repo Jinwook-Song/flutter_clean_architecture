@@ -1,8 +1,12 @@
 import 'dart:async';
+import 'dart:ffi';
 
 import 'package:clean_architecture/domain/model/model.dart';
+import 'package:clean_architecture/domain/usecase/base_usecase.dart';
 import 'package:clean_architecture/domain/usecase/home_usecase.dart';
 import 'package:clean_architecture/presentation/base/base_view_model.dart';
+import 'package:clean_architecture/presentation/common/state_renderer/state_renderer.dart';
+import 'package:clean_architecture/presentation/common/state_renderer/state_renderer_impl.dart';
 import 'package:rxdart/subjects.dart';
 
 class HomeViewModel extends BaseViewModel
@@ -16,7 +20,7 @@ class HomeViewModel extends BaseViewModel
 
   @override
   void start() {
-    // TODO: implement start
+    _getHome();
   }
 
   @override
@@ -25,6 +29,25 @@ class HomeViewModel extends BaseViewModel
     _servicesController.close();
     _storesController.close();
     super.dispose();
+  }
+
+  _getHome() async {
+    inputState.add(LoadingState(
+      stateRendererType: StateRendererType.FULL_SCREEN_LOADING_STATE,
+    ));
+
+    final response = await _homeUsecase.execute(NoParams());
+    response.fold(
+      (failure) => inputState.add(ErrorState(
+          stateRendererType: StateRendererType.FULL_SCREEN_ERROR_STATE,
+          message: failure.message)),
+      (HomeObject homeObject) {
+        inputState.add(ContentState());
+        inputBanners.add(homeObject.data.banners);
+        inputServices.add(homeObject.data.services);
+        inputStores.add(homeObject.data.stores);
+      },
+    );
   }
 
   // Inputs
