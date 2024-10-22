@@ -5,9 +5,11 @@ import 'package:clean_architecture/data/network/dio_factory.dart';
 import 'package:clean_architecture/data/network/network_info.dart';
 import 'package:clean_architecture/data/repository/repository_impl.dart';
 import 'package:clean_architecture/domain/repository/repository.dart';
+import 'package:clean_architecture/domain/usecase/home_usecase.dart';
 import 'package:clean_architecture/domain/usecase/login_usecase.dart';
 import 'package:clean_architecture/domain/usecase/register_usecase.dart';
 import 'package:clean_architecture/presentation/login/login_view_model.dart';
+import 'package:clean_architecture/presentation/main/home/home_view_model.dart';
 import 'package:clean_architecture/presentation/register/register_view_model.dart';
 import 'package:get_it/get_it.dart';
 import 'package:image_picker/image_picker.dart';
@@ -56,7 +58,7 @@ initLoginModule() {
   }
 }
 
-inputRegisterModule() {
+initRegisterModule() {
   if (!GetIt.I.isRegistered<RegisterUsecase>()) {
     // registerFactory는 요청할 때마다 새로운 인스턴스를 생성
     instance.registerFactory<RegisterUsecase>(
@@ -64,5 +66,15 @@ inputRegisterModule() {
     instance.registerFactory<RegisterViewModel>(
         () => RegisterViewModel(instance.get<RegisterUsecase>()));
     instance.registerFactory<ImagePicker>(() => ImagePicker());
+  }
+}
+
+initHomeModule() {
+  if (!GetIt.I.isRegistered<HomeUsecase>()) {
+    // registerFactory는 요청할 때마다 새로운 인스턴스를 생성
+    instance.registerFactory<HomeUsecase>(
+        () => HomeUsecase(instance.get<Repository>()));
+    instance.registerFactory<HomeViewModel>(
+        () => HomeViewModel(instance.get<HomeUsecase>()));
   }
 }
