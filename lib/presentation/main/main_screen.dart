@@ -1,4 +1,4 @@
-import 'package:clean_architecture/presentation/main/home_screen.dart';
+import 'package:clean_architecture/presentation/main/home/home_screen.dart';
 import 'package:clean_architecture/presentation/main/notifications_screen.dart';
 import 'package:clean_architecture/presentation/main/search_screen.dart';
 import 'package:clean_architecture/presentation/main/settings_screen.dart';
