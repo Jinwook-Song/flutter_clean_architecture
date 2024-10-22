@@ -5,6 +5,7 @@ import 'package:clean_architecture/data/request/request.dart';
 abstract class RemoteDataSource {
   Future<AuthResponse> login(LoginRequest loginRequest);
   Future<AuthResponse> register(RegisterRequest loginRequest);
+  Future<HomeResponse> getHome();
 }
 
 class RemoteDataSourceImpl implements RemoteDataSource {
@@ -33,5 +34,10 @@ class RemoteDataSourceImpl implements RemoteDataSource {
         ''
         // registerRequest.avatar,
         );
+  }
+
+  @override
+  Future<HomeResponse> getHome() async {
+    return await _appServiceClient.getHome();
   }
 }
