@@ -53,3 +53,54 @@ class AuthResponse with _$AuthResponse {
   factory AuthResponse.fromJson(Map<String, dynamic> json) =>
       _$AuthResponseFromJson(json);
 }
+
+@freezed
+class ServiceReponse with _$ServiceReponse {
+  const factory ServiceReponse({
+    @JsonKey(name: 'id') int? id,
+    @JsonKey(name: 'title') String? title,
+    @JsonKey(name: 'image') String? image,
+  }) = _ServiceReponse;
+
+  factory ServiceReponse.fromJson(Map<String, dynamic> json) =>
+      _$ServiceReponseFromJson(json);
+}
+
+@freezed
+class StoreReponse with _$StoreReponse {
+  const factory StoreReponse({
+    @JsonKey(name: 'id') int? id,
+    @JsonKey(name: 'title') String? title,
+    @JsonKey(name: 'image') String? image,
+  }) = _StoreReponse;
+
+  factory StoreReponse.fromJson(Map<String, dynamic> json) =>
+      _$StoreReponseFromJson(json);
+}
+
+@freezed
+class BannerReponse with _$BannerReponse {
+  const factory BannerReponse({
+    @JsonKey(name: 'id') int? id,
+    @JsonKey(name: 'title') String? title,
+    @JsonKey(name: 'link') String? link,
+    @JsonKey(name: 'image') String? image,
+  }) = _BannerReponse;
+
+  factory BannerReponse.fromJson(Map<String, dynamic> json) =>
+      _$BannerReponseFromJson(json);
+}
+
+@freezed
+class HomeResponse with _$HomeResponse {
+  @JsonSerializable(explicitToJson: true)
+  const factory HomeResponse({
+    @JsonKey(name: 'base') BaseResponse? base,
+    @JsonKey(name: 'services') List<ServiceReponse>? service,
+    @JsonKey(name: 'stores') List<StoreReponse>? stores,
+    @JsonKey(name: 'banners') List<BannerReponse>? banners,
+  }) = _HomeResponse;
+
+  factory HomeResponse.fromJson(Map<String, dynamic> json) =>
+      _$HomeResponseFromJson(json);
+}

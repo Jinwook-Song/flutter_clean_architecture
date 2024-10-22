@@ -30,7 +30,6 @@ class _MainScreenState extends State<MainScreen> {
         AppStrings.notifications, Icons.notifications, NotificationsScreen()),
     const ScreenModel(AppStrings.settings, Icons.settings, SettingsScreen()),
   ];
-
   final String _title = AppStrings.home;
   int _currentIndex = 0;
 

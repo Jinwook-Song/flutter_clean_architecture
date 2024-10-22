@@ -71,3 +71,72 @@ Map<String, dynamic> _$$AuthResponseImplToJson(_$AuthResponseImpl instance) =>
       'link': instance.link,
       'contacts': instance.contacts?.toJson(),
     };
+
+_$ServiceReponseImpl _$$ServiceReponseImplFromJson(Map<String, dynamic> json) =>
+    _$ServiceReponseImpl(
+      id: (json['id'] as num?)?.toInt(),
+      title: json['title'] as String?,
+      image: json['image'] as String?,
+    );
+
+Map<String, dynamic> _$$ServiceReponseImplToJson(
+        _$ServiceReponseImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'image': instance.image,
+    };
+
+_$StoreReponseImpl _$$StoreReponseImplFromJson(Map<String, dynamic> json) =>
+    _$StoreReponseImpl(
+      id: (json['id'] as num?)?.toInt(),
+      title: json['title'] as String?,
+      image: json['image'] as String?,
+    );
+
+Map<String, dynamic> _$$StoreReponseImplToJson(_$StoreReponseImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'image': instance.image,
+    };
+
+_$BannerReponseImpl _$$BannerReponseImplFromJson(Map<String, dynamic> json) =>
+    _$BannerReponseImpl(
+      id: (json['id'] as num?)?.toInt(),
+      title: json['title'] as String?,
+      link: json['link'] as String?,
+      image: json['image'] as String?,
+    );
+
+Map<String, dynamic> _$$BannerReponseImplToJson(_$BannerReponseImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'link': instance.link,
+      'image': instance.image,
+    };
+
+_$HomeResponseImpl _$$HomeResponseImplFromJson(Map<String, dynamic> json) =>
+    _$HomeResponseImpl(
+      base: json['base'] == null
+          ? null
+          : BaseResponse.fromJson(json['base'] as Map<String, dynamic>),
+      service: (json['services'] as List<dynamic>?)
+          ?.map((e) => ServiceReponse.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      stores: (json['stores'] as List<dynamic>?)
+          ?.map((e) => StoreReponse.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      banners: (json['banners'] as List<dynamic>?)
+          ?.map((e) => BannerReponse.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$HomeResponseImplToJson(_$HomeResponseImpl instance) =>
+    <String, dynamic>{
+      'base': instance.base?.toJson(),
+      'services': instance.service?.map((e) => e.toJson()).toList(),
+      'stores': instance.stores?.map((e) => e.toJson()).toList(),
+      'banners': instance.banners?.map((e) => e.toJson()).toList(),
+    };

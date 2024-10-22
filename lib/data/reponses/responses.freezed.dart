@@ -882,3 +882,910 @@ abstract class _AuthResponse implements AuthResponse {
   _$$AuthResponseImplCopyWith<_$AuthResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+ServiceReponse _$ServiceReponseFromJson(Map<String, dynamic> json) {
+  return _ServiceReponse.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ServiceReponse {
+  @JsonKey(name: 'id')
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'title')
+  String? get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'image')
+  String? get image => throw _privateConstructorUsedError;
+
+  /// Serializes this ServiceReponse to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of ServiceReponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ServiceReponseCopyWith<ServiceReponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ServiceReponseCopyWith<$Res> {
+  factory $ServiceReponseCopyWith(
+          ServiceReponse value, $Res Function(ServiceReponse) then) =
+      _$ServiceReponseCopyWithImpl<$Res, ServiceReponse>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'image') String? image});
+}
+
+/// @nodoc
+class _$ServiceReponseCopyWithImpl<$Res, $Val extends ServiceReponse>
+    implements $ServiceReponseCopyWith<$Res> {
+  _$ServiceReponseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of ServiceReponse
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? image = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ServiceReponseImplCopyWith<$Res>
+    implements $ServiceReponseCopyWith<$Res> {
+  factory _$$ServiceReponseImplCopyWith(_$ServiceReponseImpl value,
+          $Res Function(_$ServiceReponseImpl) then) =
+      __$$ServiceReponseImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'image') String? image});
+}
+
+/// @nodoc
+class __$$ServiceReponseImplCopyWithImpl<$Res>
+    extends _$ServiceReponseCopyWithImpl<$Res, _$ServiceReponseImpl>
+    implements _$$ServiceReponseImplCopyWith<$Res> {
+  __$$ServiceReponseImplCopyWithImpl(
+      _$ServiceReponseImpl _value, $Res Function(_$ServiceReponseImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ServiceReponse
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? image = freezed,
+  }) {
+    return _then(_$ServiceReponseImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ServiceReponseImpl implements _ServiceReponse {
+  const _$ServiceReponseImpl(
+      {@JsonKey(name: 'id') this.id,
+      @JsonKey(name: 'title') this.title,
+      @JsonKey(name: 'image') this.image});
+
+  factory _$ServiceReponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ServiceReponseImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'id')
+  final int? id;
+  @override
+  @JsonKey(name: 'title')
+  final String? title;
+  @override
+  @JsonKey(name: 'image')
+  final String? image;
+
+  @override
+  String toString() {
+    return 'ServiceReponse(id: $id, title: $title, image: $image)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ServiceReponseImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.image, image) || other.image == image));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, title, image);
+
+  /// Create a copy of ServiceReponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ServiceReponseImplCopyWith<_$ServiceReponseImpl> get copyWith =>
+      __$$ServiceReponseImplCopyWithImpl<_$ServiceReponseImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ServiceReponseImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ServiceReponse implements ServiceReponse {
+  const factory _ServiceReponse(
+      {@JsonKey(name: 'id') final int? id,
+      @JsonKey(name: 'title') final String? title,
+      @JsonKey(name: 'image') final String? image}) = _$ServiceReponseImpl;
+
+  factory _ServiceReponse.fromJson(Map<String, dynamic> json) =
+      _$ServiceReponseImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'id')
+  int? get id;
+  @override
+  @JsonKey(name: 'title')
+  String? get title;
+  @override
+  @JsonKey(name: 'image')
+  String? get image;
+
+  /// Create a copy of ServiceReponse
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ServiceReponseImplCopyWith<_$ServiceReponseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+StoreReponse _$StoreReponseFromJson(Map<String, dynamic> json) {
+  return _StoreReponse.fromJson(json);
+}
+
+/// @nodoc
+mixin _$StoreReponse {
+  @JsonKey(name: 'id')
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'title')
+  String? get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'image')
+  String? get image => throw _privateConstructorUsedError;
+
+  /// Serializes this StoreReponse to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of StoreReponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $StoreReponseCopyWith<StoreReponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $StoreReponseCopyWith<$Res> {
+  factory $StoreReponseCopyWith(
+          StoreReponse value, $Res Function(StoreReponse) then) =
+      _$StoreReponseCopyWithImpl<$Res, StoreReponse>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'image') String? image});
+}
+
+/// @nodoc
+class _$StoreReponseCopyWithImpl<$Res, $Val extends StoreReponse>
+    implements $StoreReponseCopyWith<$Res> {
+  _$StoreReponseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of StoreReponse
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? image = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$StoreReponseImplCopyWith<$Res>
+    implements $StoreReponseCopyWith<$Res> {
+  factory _$$StoreReponseImplCopyWith(
+          _$StoreReponseImpl value, $Res Function(_$StoreReponseImpl) then) =
+      __$$StoreReponseImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'image') String? image});
+}
+
+/// @nodoc
+class __$$StoreReponseImplCopyWithImpl<$Res>
+    extends _$StoreReponseCopyWithImpl<$Res, _$StoreReponseImpl>
+    implements _$$StoreReponseImplCopyWith<$Res> {
+  __$$StoreReponseImplCopyWithImpl(
+      _$StoreReponseImpl _value, $Res Function(_$StoreReponseImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of StoreReponse
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? image = freezed,
+  }) {
+    return _then(_$StoreReponseImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$StoreReponseImpl implements _StoreReponse {
+  const _$StoreReponseImpl(
+      {@JsonKey(name: 'id') this.id,
+      @JsonKey(name: 'title') this.title,
+      @JsonKey(name: 'image') this.image});
+
+  factory _$StoreReponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$StoreReponseImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'id')
+  final int? id;
+  @override
+  @JsonKey(name: 'title')
+  final String? title;
+  @override
+  @JsonKey(name: 'image')
+  final String? image;
+
+  @override
+  String toString() {
+    return 'StoreReponse(id: $id, title: $title, image: $image)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$StoreReponseImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.image, image) || other.image == image));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, title, image);
+
+  /// Create a copy of StoreReponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$StoreReponseImplCopyWith<_$StoreReponseImpl> get copyWith =>
+      __$$StoreReponseImplCopyWithImpl<_$StoreReponseImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$StoreReponseImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _StoreReponse implements StoreReponse {
+  const factory _StoreReponse(
+      {@JsonKey(name: 'id') final int? id,
+      @JsonKey(name: 'title') final String? title,
+      @JsonKey(name: 'image') final String? image}) = _$StoreReponseImpl;
+
+  factory _StoreReponse.fromJson(Map<String, dynamic> json) =
+      _$StoreReponseImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'id')
+  int? get id;
+  @override
+  @JsonKey(name: 'title')
+  String? get title;
+  @override
+  @JsonKey(name: 'image')
+  String? get image;
+
+  /// Create a copy of StoreReponse
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$StoreReponseImplCopyWith<_$StoreReponseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+BannerReponse _$BannerReponseFromJson(Map<String, dynamic> json) {
+  return _BannerReponse.fromJson(json);
+}
+
+/// @nodoc
+mixin _$BannerReponse {
+  @JsonKey(name: 'id')
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'title')
+  String? get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'link')
+  String? get link => throw _privateConstructorUsedError;
+  @JsonKey(name: 'image')
+  String? get image => throw _privateConstructorUsedError;
+
+  /// Serializes this BannerReponse to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of BannerReponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $BannerReponseCopyWith<BannerReponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BannerReponseCopyWith<$Res> {
+  factory $BannerReponseCopyWith(
+          BannerReponse value, $Res Function(BannerReponse) then) =
+      _$BannerReponseCopyWithImpl<$Res, BannerReponse>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'link') String? link,
+      @JsonKey(name: 'image') String? image});
+}
+
+/// @nodoc
+class _$BannerReponseCopyWithImpl<$Res, $Val extends BannerReponse>
+    implements $BannerReponseCopyWith<$Res> {
+  _$BannerReponseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of BannerReponse
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? link = freezed,
+    Object? image = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      link: freezed == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$BannerReponseImplCopyWith<$Res>
+    implements $BannerReponseCopyWith<$Res> {
+  factory _$$BannerReponseImplCopyWith(
+          _$BannerReponseImpl value, $Res Function(_$BannerReponseImpl) then) =
+      __$$BannerReponseImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'link') String? link,
+      @JsonKey(name: 'image') String? image});
+}
+
+/// @nodoc
+class __$$BannerReponseImplCopyWithImpl<$Res>
+    extends _$BannerReponseCopyWithImpl<$Res, _$BannerReponseImpl>
+    implements _$$BannerReponseImplCopyWith<$Res> {
+  __$$BannerReponseImplCopyWithImpl(
+      _$BannerReponseImpl _value, $Res Function(_$BannerReponseImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BannerReponse
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? link = freezed,
+    Object? image = freezed,
+  }) {
+    return _then(_$BannerReponseImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      link: freezed == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$BannerReponseImpl implements _BannerReponse {
+  const _$BannerReponseImpl(
+      {@JsonKey(name: 'id') this.id,
+      @JsonKey(name: 'title') this.title,
+      @JsonKey(name: 'link') this.link,
+      @JsonKey(name: 'image') this.image});
+
+  factory _$BannerReponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BannerReponseImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'id')
+  final int? id;
+  @override
+  @JsonKey(name: 'title')
+  final String? title;
+  @override
+  @JsonKey(name: 'link')
+  final String? link;
+  @override
+  @JsonKey(name: 'image')
+  final String? image;
+
+  @override
+  String toString() {
+    return 'BannerReponse(id: $id, title: $title, link: $link, image: $image)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$BannerReponseImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.link, link) || other.link == link) &&
+            (identical(other.image, image) || other.image == image));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, title, link, image);
+
+  /// Create a copy of BannerReponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$BannerReponseImplCopyWith<_$BannerReponseImpl> get copyWith =>
+      __$$BannerReponseImplCopyWithImpl<_$BannerReponseImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$BannerReponseImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _BannerReponse implements BannerReponse {
+  const factory _BannerReponse(
+      {@JsonKey(name: 'id') final int? id,
+      @JsonKey(name: 'title') final String? title,
+      @JsonKey(name: 'link') final String? link,
+      @JsonKey(name: 'image') final String? image}) = _$BannerReponseImpl;
+
+  factory _BannerReponse.fromJson(Map<String, dynamic> json) =
+      _$BannerReponseImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'id')
+  int? get id;
+  @override
+  @JsonKey(name: 'title')
+  String? get title;
+  @override
+  @JsonKey(name: 'link')
+  String? get link;
+  @override
+  @JsonKey(name: 'image')
+  String? get image;
+
+  /// Create a copy of BannerReponse
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$BannerReponseImplCopyWith<_$BannerReponseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+HomeResponse _$HomeResponseFromJson(Map<String, dynamic> json) {
+  return _HomeResponse.fromJson(json);
+}
+
+/// @nodoc
+mixin _$HomeResponse {
+  @JsonKey(name: 'base')
+  BaseResponse? get base => throw _privateConstructorUsedError;
+  @JsonKey(name: 'services')
+  List<ServiceReponse>? get service => throw _privateConstructorUsedError;
+  @JsonKey(name: 'stores')
+  List<StoreReponse>? get stores => throw _privateConstructorUsedError;
+  @JsonKey(name: 'banners')
+  List<BannerReponse>? get banners => throw _privateConstructorUsedError;
+
+  /// Serializes this HomeResponse to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of HomeResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $HomeResponseCopyWith<HomeResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $HomeResponseCopyWith<$Res> {
+  factory $HomeResponseCopyWith(
+          HomeResponse value, $Res Function(HomeResponse) then) =
+      _$HomeResponseCopyWithImpl<$Res, HomeResponse>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'base') BaseResponse? base,
+      @JsonKey(name: 'services') List<ServiceReponse>? service,
+      @JsonKey(name: 'stores') List<StoreReponse>? stores,
+      @JsonKey(name: 'banners') List<BannerReponse>? banners});
+
+  $BaseResponseCopyWith<$Res>? get base;
+}
+
+/// @nodoc
+class _$HomeResponseCopyWithImpl<$Res, $Val extends HomeResponse>
+    implements $HomeResponseCopyWith<$Res> {
+  _$HomeResponseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of HomeResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? base = freezed,
+    Object? service = freezed,
+    Object? stores = freezed,
+    Object? banners = freezed,
+  }) {
+    return _then(_value.copyWith(
+      base: freezed == base
+          ? _value.base
+          : base // ignore: cast_nullable_to_non_nullable
+              as BaseResponse?,
+      service: freezed == service
+          ? _value.service
+          : service // ignore: cast_nullable_to_non_nullable
+              as List<ServiceReponse>?,
+      stores: freezed == stores
+          ? _value.stores
+          : stores // ignore: cast_nullable_to_non_nullable
+              as List<StoreReponse>?,
+      banners: freezed == banners
+          ? _value.banners
+          : banners // ignore: cast_nullable_to_non_nullable
+              as List<BannerReponse>?,
+    ) as $Val);
+  }
+
+  /// Create a copy of HomeResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $BaseResponseCopyWith<$Res>? get base {
+    if (_value.base == null) {
+      return null;
+    }
+
+    return $BaseResponseCopyWith<$Res>(_value.base!, (value) {
+      return _then(_value.copyWith(base: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$HomeResponseImplCopyWith<$Res>
+    implements $HomeResponseCopyWith<$Res> {
+  factory _$$HomeResponseImplCopyWith(
+          _$HomeResponseImpl value, $Res Function(_$HomeResponseImpl) then) =
+      __$$HomeResponseImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'base') BaseResponse? base,
+      @JsonKey(name: 'services') List<ServiceReponse>? service,
+      @JsonKey(name: 'stores') List<StoreReponse>? stores,
+      @JsonKey(name: 'banners') List<BannerReponse>? banners});
+
+  @override
+  $BaseResponseCopyWith<$Res>? get base;
+}
+
+/// @nodoc
+class __$$HomeResponseImplCopyWithImpl<$Res>
+    extends _$HomeResponseCopyWithImpl<$Res, _$HomeResponseImpl>
+    implements _$$HomeResponseImplCopyWith<$Res> {
+  __$$HomeResponseImplCopyWithImpl(
+      _$HomeResponseImpl _value, $Res Function(_$HomeResponseImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? base = freezed,
+    Object? service = freezed,
+    Object? stores = freezed,
+    Object? banners = freezed,
+  }) {
+    return _then(_$HomeResponseImpl(
+      base: freezed == base
+          ? _value.base
+          : base // ignore: cast_nullable_to_non_nullable
+              as BaseResponse?,
+      service: freezed == service
+          ? _value._service
+          : service // ignore: cast_nullable_to_non_nullable
+              as List<ServiceReponse>?,
+      stores: freezed == stores
+          ? _value._stores
+          : stores // ignore: cast_nullable_to_non_nullable
+              as List<StoreReponse>?,
+      banners: freezed == banners
+          ? _value._banners
+          : banners // ignore: cast_nullable_to_non_nullable
+              as List<BannerReponse>?,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(explicitToJson: true)
+class _$HomeResponseImpl implements _HomeResponse {
+  const _$HomeResponseImpl(
+      {@JsonKey(name: 'base') this.base,
+      @JsonKey(name: 'services') final List<ServiceReponse>? service,
+      @JsonKey(name: 'stores') final List<StoreReponse>? stores,
+      @JsonKey(name: 'banners') final List<BannerReponse>? banners})
+      : _service = service,
+        _stores = stores,
+        _banners = banners;
+
+  factory _$HomeResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$HomeResponseImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'base')
+  final BaseResponse? base;
+  final List<ServiceReponse>? _service;
+  @override
+  @JsonKey(name: 'services')
+  List<ServiceReponse>? get service {
+    final value = _service;
+    if (value == null) return null;
+    if (_service is EqualUnmodifiableListView) return _service;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<StoreReponse>? _stores;
+  @override
+  @JsonKey(name: 'stores')
+  List<StoreReponse>? get stores {
+    final value = _stores;
+    if (value == null) return null;
+    if (_stores is EqualUnmodifiableListView) return _stores;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<BannerReponse>? _banners;
+  @override
+  @JsonKey(name: 'banners')
+  List<BannerReponse>? get banners {
+    final value = _banners;
+    if (value == null) return null;
+    if (_banners is EqualUnmodifiableListView) return _banners;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  String toString() {
+    return 'HomeResponse(base: $base, service: $service, stores: $stores, banners: $banners)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HomeResponseImpl &&
+            (identical(other.base, base) || other.base == base) &&
+            const DeepCollectionEquality().equals(other._service, _service) &&
+            const DeepCollectionEquality().equals(other._stores, _stores) &&
+            const DeepCollectionEquality().equals(other._banners, _banners));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      base,
+      const DeepCollectionEquality().hash(_service),
+      const DeepCollectionEquality().hash(_stores),
+      const DeepCollectionEquality().hash(_banners));
+
+  /// Create a copy of HomeResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HomeResponseImplCopyWith<_$HomeResponseImpl> get copyWith =>
+      __$$HomeResponseImplCopyWithImpl<_$HomeResponseImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$HomeResponseImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _HomeResponse implements HomeResponse {
+  const factory _HomeResponse(
+          {@JsonKey(name: 'base') final BaseResponse? base,
+          @JsonKey(name: 'services') final List<ServiceReponse>? service,
+          @JsonKey(name: 'stores') final List<StoreReponse>? stores,
+          @JsonKey(name: 'banners') final List<BannerReponse>? banners}) =
+      _$HomeResponseImpl;
+
+  factory _HomeResponse.fromJson(Map<String, dynamic> json) =
+      _$HomeResponseImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'base')
+  BaseResponse? get base;
+  @override
+  @JsonKey(name: 'services')
+  List<ServiceReponse>? get service;
+  @override
+  @JsonKey(name: 'stores')
+  List<StoreReponse>? get stores;
+  @override
+  @JsonKey(name: 'banners')
+  List<BannerReponse>? get banners;
+
+  /// Create a copy of HomeResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$HomeResponseImplCopyWith<_$HomeResponseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
