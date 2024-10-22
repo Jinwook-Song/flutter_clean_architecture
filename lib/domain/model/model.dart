@@ -116,5 +116,5 @@ class HomeData with _$HomeData {
 class HomeObject {
   final HomeData data;
 
-  HomeObject({required this.data});
+  HomeObject(this.data);
 }

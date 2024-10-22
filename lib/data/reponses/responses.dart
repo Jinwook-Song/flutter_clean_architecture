@@ -92,13 +92,24 @@ class BannerReponse with _$BannerReponse {
 }
 
 @freezed
+class HomeDataResponse with _$HomeDataResponse {
+  @JsonSerializable(explicitToJson: true)
+  const factory HomeDataResponse({
+    @JsonKey(name: 'services') List<ServiceReponse>? services,
+    @JsonKey(name: 'stores') List<StoreReponse>? stores,
+    @JsonKey(name: 'banners') List<BannerReponse>? banners,
+  }) = _HomeDataResponse;
+
+  factory HomeDataResponse.fromJson(Map<String, dynamic> json) =>
+      _$HomeDataResponseFromJson(json);
+}
+
+@freezed
 class HomeResponse with _$HomeResponse {
   @JsonSerializable(explicitToJson: true)
   const factory HomeResponse({
     @JsonKey(name: 'base') BaseResponse? base,
-    @JsonKey(name: 'services') List<ServiceReponse>? service,
-    @JsonKey(name: 'stores') List<StoreReponse>? stores,
-    @JsonKey(name: 'banners') List<BannerReponse>? banners,
+    @JsonKey(name: 'data') HomeDataResponse? data,
   }) = _HomeResponse;
 
   factory HomeResponse.fromJson(Map<String, dynamic> json) =>
