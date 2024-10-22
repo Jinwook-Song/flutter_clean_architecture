@@ -6,4 +6,5 @@ import 'package:dartz/dartz.dart';
 abstract class Repository {
   Future<Either<Failure, Authentication>> login(LoginRequest request);
   Future<Either<Failure, Authentication>> register(RegisterRequest request);
+  Future<Either<Failure, HomeObject>> getHome();
 }
