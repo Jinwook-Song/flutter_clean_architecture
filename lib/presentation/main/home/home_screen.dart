@@ -4,9 +4,12 @@ import 'package:clean_architecture/domain/model/model.dart' as model;
 import 'package:clean_architecture/presentation/common/state_renderer/state_renderer_impl.dart';
 import 'package:clean_architecture/presentation/main/home/home_view_model.dart';
 import 'package:clean_architecture/presentation/resources/color_manager.dart';
+import 'package:clean_architecture/presentation/resources/routes_manager.dart';
 import 'package:clean_architecture/presentation/resources/strings_manager.dart';
 import 'package:clean_architecture/presentation/resources/value_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:gap/gap.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -57,23 +60,28 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const Gap(AppSize.s12),
         _getBannersCarousel(),
         _getSection(AppStrings.services),
         _getServices(),
         _getSection(AppStrings.stores),
         _getStores(),
+        const Gap(AppSize.s12),
       ],
     );
   }
 
   Widget _getSection(String title) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppPadding.p12,
+      padding: const EdgeInsets.all(
+        AppPadding.p12,
       ),
       child: Text(
         title,
-        style: Theme.of(context).textTheme.displayMedium,
+        style: Theme.of(context)
+            .textTheme
+            .displaySmall!
+            .copyWith(color: ColorManager.primary),
       ),
     );
   }
@@ -123,10 +131,95 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _getServices() {
-    return const Center();
+    return StreamBuilder(
+      stream: _homeViewModel.services,
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) return const SizedBox.shrink();
+        List<model.Service> services = snapshot.data!;
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: AppPadding.p12),
+          child: SizedBox(
+            height: AppSize.s140,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: services
+                  .map((service) => Card(
+                        elevation: AppSize.s4,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(AppSize.s12),
+                          side: const BorderSide(
+                            color: ColorManager.white,
+                            width: AppSize.s1_5,
+                          ),
+                        ),
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(AppSize.s12),
+                              child: Image.network(
+                                service.image,
+                                fit: BoxFit.cover,
+                                width: AppSize.s120,
+                                height: AppSize.s100,
+                              ),
+                            ),
+                            const Gap(AppSize.s12),
+                            Center(
+                              child: Text(
+                                service.title,
+                                textAlign: TextAlign.center,
+                              ),
+                            )
+                          ],
+                        ),
+                      ))
+                  .toList(),
+            ),
+          ),
+        );
+      },
+    );
   }
 
   Widget _getStores() {
-    return const Center();
+    return StreamBuilder(
+        stream: _homeViewModel.services,
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) return const SizedBox.shrink();
+          final stores = snapshot.data!;
+          return Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: AppPadding.p12,
+            ),
+            child: Flex(
+              direction: Axis.vertical,
+              children: [
+                GridView.count(
+                  crossAxisSpacing: AppSize.s8,
+                  mainAxisSpacing: AppSize.s8,
+                  physics: const ScrollPhysics(),
+                  shrinkWrap: true,
+                  crossAxisCount: 2,
+                  children: List.generate(stores.length, (index) {
+                    return InkWell(
+                      onTap: () {
+                        // navigate to store details screen
+                        Navigator.of(context)
+                            .pushNamed(Routes.storeDetailsRoute);
+                      },
+                      child: Card(
+                        elevation: AppSize.s4,
+                        child: Image.network(
+                          stores[index].image,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    );
+                  }),
+                )
+              ],
+            ),
+          );
+        });
   }
 }
