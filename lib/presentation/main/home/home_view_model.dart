@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ffi';
 
 import 'package:clean_architecture/domain/model/model.dart';
 import 'package:clean_architecture/domain/usecase/base_usecase.dart';
