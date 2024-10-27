@@ -35,4 +35,12 @@ class AppPreferences {
   bool isUserLoggedIn() {
     return _preferences.getBool(PREF_KEY_IS_USER_LOGGED_IN) ?? false;
   }
+
+  Future<void> logout() async {
+    await _preferences.remove(PREF_KEY_IS_USER_LOGGED_IN);
+  }
+
+  Future<void> setLanguageChanged() async {
+    // TODO
+  }
 }
