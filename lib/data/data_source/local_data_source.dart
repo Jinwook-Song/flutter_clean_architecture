@@ -9,6 +9,10 @@ abstract class LocalDataSource<T> {
   Future<T> getItem(String key);
 
   Future<void> saveItemToCache(String key, T item);
+
+  void clearCache();
+
+  void removeFromCache(String key);
 }
 
 class LocalDataSourceImpl<T> implements LocalDataSource<T> {
@@ -29,6 +33,16 @@ class LocalDataSourceImpl<T> implements LocalDataSource<T> {
   @override
   Future<void> saveItemToCache(String key, T item) async {
     cacheMap[key] = CachedItem<T>(item);
+  }
+
+  @override
+  void clearCache() {
+    cacheMap.clear();
+  }
+
+  @override
+  void removeFromCache(String key) {
+    cacheMap.remove(key);
   }
 }
 
