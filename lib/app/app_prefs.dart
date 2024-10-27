@@ -25,10 +25,10 @@ class AppPreferences {
     String currentLanguage = getAppLanguage();
     if (currentLanguage == LanguageType.ENGLISH.getValue()) {
       _preferences.setString(
-          PREF_PREFIX + PREF_KEY_LANG, LanguageType.ENGLISH.getValue());
+          PREF_PREFIX + PREF_KEY_LANG, LanguageType.KOREAN.getValue());
     } else {
       _preferences.setString(
-          PREF_PREFIX + PREF_KEY_LANG, LanguageType.KOREAN.getValue());
+          PREF_PREFIX + PREF_KEY_LANG, LanguageType.ENGLISH.getValue());
     }
   }
 
