@@ -84,3 +84,11 @@ initHomeModule() {
         () => HomeViewModel(instance.get<HomeUsecase>()));
   }
 }
+
+resetModules() {
+  instance.reset(dispose: false);
+  initAppModule();
+  initHomeModule();
+  initLoginModule();
+  initRegisterModule();
+}

@@ -50,10 +50,12 @@ class _LoginScreenState extends State<LoginScreen> {
       () => _loginViewModel.setPassword(_passwordController.text),
     );
 
-    _loginViewModel.isSuccessController.stream.listen((isLoggedIn) {
+    _loginViewModel.isSuccessController.stream.listen((token) {
       SchedulerBinding.instance.addPostFrameCallback((_) {
         // navigato to main
+        _appPreferences.setToken(token);
         _appPreferences.setIsUserLoggedIn();
+        resetModules();
         Navigator.of(context).pushReplacementNamed(Routes.mainRoute);
       });
     });
