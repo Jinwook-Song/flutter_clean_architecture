@@ -5,23 +5,23 @@ import 'package:clean_architecture/data/network/error_handler.dart';
 const CACHE_HOME_KEY = 'CACHE_HOME_KEY';
 const CACHE_HOME_INTERVAL = 60 * 1000; // 60 seconds
 
-abstract class LocalDataSource<T> {
-  Future<T> getItem(String key);
+abstract class LocalDataSource {
+  T getItem<T>(String key);
 
-  Future<void> saveItemToCache(String key, T item);
+  void saveItemToCache<T>(String key, T item);
 
   void clearCache();
 
   void removeFromCache(String key);
 }
 
-class LocalDataSourceImpl<T> implements LocalDataSource<T> {
+class LocalDataSourceImpl implements LocalDataSource {
   // 런타임 캐시
-  Map<String, CachedItem<T>> cacheMap = {};
+  Map<String, CachedItem> cacheMap = {};
 
   @override
-  Future<T> getItem(String key) async {
-    CachedItem<T>? cachedItem = cacheMap[key];
+  T getItem<T>(String key) {
+    CachedItem? cachedItem = cacheMap[key];
 
     if (cachedItem != null && cachedItem.isValid(CACHE_HOME_INTERVAL)) {
       return cachedItem.data;
@@ -31,7 +31,7 @@ class LocalDataSourceImpl<T> implements LocalDataSource<T> {
   }
 
   @override
-  Future<void> saveItemToCache(String key, T item) async {
+  void saveItemToCache<T>(String key, T item) {
     cacheMap[key] = CachedItem<T>(item);
   }
 
