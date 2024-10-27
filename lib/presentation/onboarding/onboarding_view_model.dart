@@ -4,7 +4,9 @@ import 'dart:math';
 import 'package:clean_architecture/domain/model/model.dart';
 import 'package:clean_architecture/presentation/base/base_view_model.dart';
 import 'package:clean_architecture/presentation/resources/assets_manager.dart';
+import 'package:clean_architecture/presentation/resources/routes_manager.dart';
 import 'package:clean_architecture/presentation/resources/strings_manager.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class OnboardingViewModel extends BaseViewModel
     implements OnBoardingViewModelInputs, OnBoardingViewModelOutputs {
@@ -54,23 +56,23 @@ class OnboardingViewModel extends BaseViewModel
 
   List<SliderObject> _getSliderData() => [
         SliderObject(
-          title: AppStrings.onBoardingTitle1,
-          subtitle: AppStrings.onBoardingTitle1,
+          title: AppStrings.onBoardingTitle1.tr(),
+          subtitle: AppStrings.onBoardingTitle1.tr(),
           image: ImageAssets.onboardingLogo1,
         ),
         SliderObject(
-          title: AppStrings.onBoardingTitle2,
-          subtitle: AppStrings.onBoardingTitle2,
+          title: AppStrings.onBoardingTitle2.tr(),
+          subtitle: AppStrings.onBoardingTitle2.tr(),
           image: ImageAssets.onboardingLogo2,
         ),
         SliderObject(
-          title: AppStrings.onBoardingTitle3,
-          subtitle: AppStrings.onBoardingTitle3,
+          title: AppStrings.onBoardingTitle3.tr(),
+          subtitle: AppStrings.onBoardingTitle3.tr(),
           image: ImageAssets.onboardingLogo3,
         ),
         SliderObject(
-          title: AppStrings.onBoardingTitle4,
-          subtitle: AppStrings.onBoardingTitle4,
+          title: AppStrings.onBoardingTitle4.tr(),
+          subtitle: AppStrings.onBoardingTitle4.tr(),
           image: ImageAssets.onboardingLogo4,
         ),
       ];

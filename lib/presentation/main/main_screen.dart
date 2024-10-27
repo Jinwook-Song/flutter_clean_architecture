@@ -6,6 +6,7 @@ import 'package:clean_architecture/presentation/resources/color_manager.dart';
 import 'package:clean_architecture/presentation/resources/strings_manager.dart';
 import 'package:clean_architecture/presentation/resources/value_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class ScreenModel {
   final String title;
@@ -24,13 +25,14 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   final List<ScreenModel> _pages = [
-    const ScreenModel(AppStrings.home, Icons.home, HomeScreen()),
-    const ScreenModel(AppStrings.search, Icons.search, SearchScreen()),
-    const ScreenModel(
-        AppStrings.notifications, Icons.notifications, NotificationsScreen()),
-    const ScreenModel(AppStrings.settings, Icons.settings, SettingsScreen()),
+    ScreenModel(AppStrings.home.tr(), Icons.home, const HomeScreen()),
+    ScreenModel(AppStrings.search.tr(), Icons.search, const SearchScreen()),
+    ScreenModel(AppStrings.notifications.tr(), Icons.notifications,
+        const NotificationsScreen()),
+    ScreenModel(
+        AppStrings.settings.tr(), Icons.settings, const SettingsScreen()),
   ];
-  final String _title = AppStrings.home;
+  final String _title = AppStrings.home.tr();
   int _currentIndex = 0;
 
   @override

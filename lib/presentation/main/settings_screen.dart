@@ -7,6 +7,7 @@ import 'package:clean_architecture/presentation/resources/strings_manager.dart';
 import 'package:clean_architecture/presentation/resources/value_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -47,7 +48,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           onTap: _changeLanguage,
           leading: SvgPicture.asset(ImageAssets.changeLangIc),
           title: Text(
-            AppStrings.changeLanguage,
+            AppStrings.changeLanguage.tr(),
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           trailing: SvgPicture.asset(ImageAssets.settingsRightArrowIc),
@@ -56,7 +57,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           onTap: _contactUs,
           leading: SvgPicture.asset(ImageAssets.contactUsIc),
           title: Text(
-            AppStrings.contactUs,
+            AppStrings.contactUs.tr(),
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           trailing: SvgPicture.asset(ImageAssets.settingsRightArrowIc),
@@ -65,7 +66,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           onTap: _inviteFriends,
           leading: SvgPicture.asset(ImageAssets.inviteFriendsIc),
           title: Text(
-            AppStrings.inviteYourFriends,
+            AppStrings.inviteYourFriends.tr(),
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           trailing: SvgPicture.asset(ImageAssets.settingsRightArrowIc),
@@ -74,7 +75,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           onTap: _logout,
           leading: SvgPicture.asset(ImageAssets.logoutIc),
           title: Text(
-            AppStrings.logout,
+            AppStrings.logout.tr(),
             style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),

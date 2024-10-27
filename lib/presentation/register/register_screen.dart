@@ -16,6 +16,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -123,8 +124,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       keyboardType: TextInputType.emailAddress,
                       controller: _nameController,
                       decoration: InputDecoration(
-                        hintText: AppStrings.username,
-                        labelText: AppStrings.username,
+                        hintText: AppStrings.username.tr(),
+                        labelText: AppStrings.username.tr(),
                         errorText: snapshot.data,
                       ),
                     );
@@ -160,8 +161,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               keyboardType: TextInputType.phone,
                               controller: _mobileNumberController,
                               decoration: InputDecoration(
-                                hintText: AppStrings.mobileNumber,
-                                labelText: AppStrings.mobileNumber,
+                                hintText: AppStrings.mobileNumber.tr(),
+                                labelText: AppStrings.mobileNumber.tr(),
                                 errorText: snapshot.data,
                               ),
                             );
@@ -182,8 +183,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       keyboardType: TextInputType.emailAddress,
                       controller: _emailController,
                       decoration: InputDecoration(
-                        hintText: AppStrings.emailHint,
-                        labelText: AppStrings.emailHint,
+                        hintText: AppStrings.emailHint.tr(),
+                        labelText: AppStrings.emailHint.tr(),
                         errorText: snapshot.data,
                       ),
                     );
@@ -200,8 +201,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       keyboardType: TextInputType.visiblePassword,
                       controller: _passwordController,
                       decoration: InputDecoration(
-                        hintText: AppStrings.password,
-                        labelText: AppStrings.password,
+                        hintText: AppStrings.password.tr(),
+                        labelText: AppStrings.password.tr(),
                         errorText: snapshot.data,
                       ),
                     );
@@ -243,7 +244,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           onPressed: !snapshot.hasData || snapshot.data == false
                               ? null
                               : _registerViewModel.register,
-                          child: const Text(AppStrings.register)),
+                          child: Text(AppStrings.register.tr())),
                     );
                   },
                 ),
@@ -254,7 +255,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: TextButton(
                   onPressed: Navigator.of(context).pop,
                   child: Text(
-                    AppStrings.haveAccount,
+                    AppStrings.haveAccount.tr(),
                     style: Theme.of(context).textTheme.titleSmall,
                   ),
                 ),
@@ -272,9 +273,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Flexible(
+          Flexible(
               child: Text(
-            AppStrings.profilePicture,
+            AppStrings.profilePicture.tr(),
             maxLines: 1,
           )),
           Flexible(
@@ -309,13 +310,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ListTile(
               onTap: _imageFromGallery,
               leading: const Icon(Icons.photo),
-              title: const Text(AppStrings.photoGalley),
+              title: Text(AppStrings.photoGalley.tr()),
               trailing: const Icon(Icons.arrow_forward),
             ),
             ListTile(
               onTap: _imageFromCamera,
               leading: const Icon(Icons.camera),
-              title: const Text(AppStrings.photoCamera),
+              title: Text(AppStrings.photoCamera.tr()),
               trailing: const Icon(Icons.arrow_forward),
             ),
           ],

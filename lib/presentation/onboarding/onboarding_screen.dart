@@ -10,6 +10,7 @@ import 'package:clean_architecture/presentation/resources/value_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -84,7 +85,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     );
                   },
                   child: Text(
-                    AppStrings.skip,
+                    AppStrings.skip.tr(),
                     style: Theme.of(context).textTheme.titleSmall,
                     textAlign: TextAlign.right,
                   ),

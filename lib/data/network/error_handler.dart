@@ -3,6 +3,7 @@
 import 'package:clean_architecture/data/network/failure.dart';
 import 'package:clean_architecture/presentation/resources/strings_manager.dart';
 import 'package:dio/dio.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 enum DataSource {
   SUCCESS,
@@ -70,52 +71,54 @@ extension DataSourceExtension on DataSource {
   Failure getFailure() {
     switch (this) {
       case DataSource.BAD_REQUEST:
-        return const Failure(
+        return Failure(
             code: ResponseCode.BAD_REQUEST,
-            message: ResponseMessage.BAD_REQUEST);
+            message: ResponseMessage.BAD_REQUEST.tr());
       case DataSource.FORBIDDEN:
-        return const Failure(
-            code: ResponseCode.FORBIDDEN, message: ResponseMessage.FORBIDDEN);
+        return Failure(
+            code: ResponseCode.FORBIDDEN,
+            message: ResponseMessage.FORBIDDEN.tr());
       case DataSource.UNAUTHORISED:
-        return const Failure(
+        return Failure(
             code: ResponseCode.UNAUTHORISED,
-            message: ResponseMessage.UNAUTHORISED);
+            message: ResponseMessage.UNAUTHORISED.tr());
       case DataSource.NOT_FOUND:
-        return const Failure(
-            code: ResponseCode.NOT_FOUND, message: ResponseMessage.NOT_FOUND);
+        return Failure(
+            code: ResponseCode.NOT_FOUND,
+            message: ResponseMessage.NOT_FOUND.tr());
       case DataSource.INTERNAL_SERVER_ERROR:
-        return const Failure(
+        return Failure(
             code: ResponseCode.INTERNAL_SERVER_ERROR,
-            message: ResponseMessage.INTERNAL_SERVER_ERROR);
+            message: ResponseMessage.INTERNAL_SERVER_ERROR.tr());
       case DataSource.CONNECT_TIMEOUT:
-        return const Failure(
+        return Failure(
             code: ResponseCode.CONNECT_TIMEOUT,
-            message: ResponseMessage.CONNECT_TIMEOUT);
+            message: ResponseMessage.CONNECT_TIMEOUT.tr());
       case DataSource.CANCEL:
-        return const Failure(
-            code: ResponseCode.CANCEL, message: ResponseMessage.CANCEL);
+        return Failure(
+            code: ResponseCode.CANCEL, message: ResponseMessage.CANCEL.tr());
       case DataSource.RECEIVE_TIMEOUT:
-        return const Failure(
+        return Failure(
             code: ResponseCode.RECEIVE_TIMEOUT,
-            message: ResponseMessage.RECEIVE_TIMEOUT);
+            message: ResponseMessage.RECEIVE_TIMEOUT.tr());
       case DataSource.SEND_TIMEOUT:
-        return const Failure(
+        return Failure(
             code: ResponseCode.SEND_TIMEOUT,
-            message: ResponseMessage.SEND_TIMEOUT);
+            message: ResponseMessage.SEND_TIMEOUT.tr());
       case DataSource.CACHE_ERROR:
-        return const Failure(
+        return Failure(
             code: ResponseCode.CACHE_ERROR,
-            message: ResponseMessage.CACHE_ERROR);
+            message: ResponseMessage.CACHE_ERROR.tr());
       case DataSource.NO_INTERNET_CONNECTION:
-        return const Failure(
+        return Failure(
             code: ResponseCode.NO_INTERNET_CONNECTION,
-            message: ResponseMessage.NO_INTERNET_CONNECTION);
+            message: ResponseMessage.NO_INTERNET_CONNECTION.tr());
       case DataSource.DEFAULT:
-        return const Failure(
-            code: ResponseCode.DEFAULT, message: ResponseMessage.DEFAULT);
+        return Failure(
+            code: ResponseCode.DEFAULT, message: ResponseMessage.DEFAULT.tr());
       default:
-        return const Failure(
-            code: ResponseCode.DEFAULT, message: ResponseMessage.DEFAULT);
+        return Failure(
+            code: ResponseCode.DEFAULT, message: ResponseMessage.DEFAULT.tr());
     }
   }
 }

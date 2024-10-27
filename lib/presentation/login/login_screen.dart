@@ -10,6 +10,7 @@ import 'package:clean_architecture/presentation/resources/value_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:gap/gap.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -99,9 +100,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       keyboardType: TextInputType.emailAddress,
                       controller: _usernameController,
                       decoration: InputDecoration(
-                        hintText: AppStrings.username,
-                        labelText: AppStrings.username,
-                        errorText: isValid ? null : AppStrings.usernameError,
+                        hintText: AppStrings.username.tr(),
+                        labelText: AppStrings.username.tr(),
+                        errorText:
+                            isValid ? null : AppStrings.usernameError.tr(),
                       ),
                     );
                   },
@@ -118,9 +120,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       keyboardType: TextInputType.visiblePassword,
                       controller: _passwordController,
                       decoration: InputDecoration(
-                        hintText: AppStrings.password,
-                        labelText: AppStrings.password,
-                        errorText: isValid ? null : AppStrings.passwordError,
+                        hintText: AppStrings.password.tr(),
+                        labelText: AppStrings.password.tr(),
+                        errorText:
+                            isValid ? null : AppStrings.passwordError.tr(),
                       ),
                     );
                   },
@@ -139,7 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: !snapshot.hasData || snapshot.data == false
                               ? null
                               : _loginViewModel.login,
-                          child: const Text(AppStrings.login)),
+                          child: Text(AppStrings.login.tr())),
                     );
                   },
                 ),
@@ -158,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         );
                       },
                       child: Text(
-                        AppStrings.forgetPassword,
+                        AppStrings.forgetPassword.tr(),
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                     ),
@@ -170,7 +173,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         );
                       },
                       child: Text(
-                        AppStrings.registerText,
+                        AppStrings.registerText.tr(),
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                     ),

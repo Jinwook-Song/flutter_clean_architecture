@@ -8,8 +8,8 @@ import 'package:clean_architecture/presentation/resources/strings_manager.dart';
 import 'package:clean_architecture/presentation/resources/styles_manager.dart';
 import 'package:clean_architecture/presentation/resources/value_manager.dart';
 import 'package:flutter/material.dart';
-
 import 'package:lottie/lottie.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 enum StateRendererType {
   // POPUP STATES
@@ -29,13 +29,13 @@ class StateRenderer extends StatelessWidget {
   final String message;
   final VoidCallback? retryAction;
 
-  const StateRenderer({
+  StateRenderer({
     super.key,
     required this.stateRendererType,
     this.title = Constant.empty,
-    this.message = AppStrings.loading,
+    String? message,
     this.retryAction,
-  });
+  }) : message = message ?? AppStrings.loading.tr();
 
   @override
   Widget build(BuildContext context) {
@@ -51,14 +51,14 @@ class StateRenderer extends StatelessWidget {
         return _getPopupDialog(context, children: [
           _getAnimatedImage(AnimationAssets.error),
           _getMessage(message),
-          _getRetryButton(context, AppStrings.ok)
+          _getRetryButton(context, AppStrings.ok.tr())
         ]);
       case StateRendererType.POPUP_SUCCESS:
         return _getPopupDialog(context, children: [
           _getAnimatedImage(AnimationAssets.success),
           _getMessage(title),
           _getMessage(message),
-          _getRetryButton(context, AppStrings.ok)
+          _getRetryButton(context, AppStrings.ok.tr())
         ]);
       case StateRendererType.FULL_SCREEN_LOADING_STATE:
         return _getItemsInColumn(children: [
@@ -69,7 +69,7 @@ class StateRenderer extends StatelessWidget {
         return _getItemsInColumn(children: [
           _getAnimatedImage(AnimationAssets.error),
           _getMessage(message),
-          _getRetryButton(context, AppStrings.retryAgain)
+          _getRetryButton(context, AppStrings.retryAgain.tr())
         ]);
       case StateRendererType.CONTENT_SCREEN_STATE:
         return const SizedBox.shrink();
