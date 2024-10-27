@@ -18,7 +18,7 @@ class LoginViewModel extends BaseViewModel
       StreamController.broadcast();
   final StreamController<void> _isValidAllController =
       StreamController.broadcast();
-  final StreamController<bool> isSuccessController = StreamController();
+  final StreamController<String> isSuccessController = StreamController();
 
   LoginObject _loginObject = const LoginObject();
 
@@ -50,7 +50,7 @@ class LoginViewModel extends BaseViewModel
           message: failure.message)),
       (data) {
         inputState.add(ContentState());
-        isSuccessController.add(true);
+        isSuccessController.add('ABCDEF');
       },
     );
   }

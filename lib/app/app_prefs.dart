@@ -2,11 +2,13 @@
 
 import 'package:clean_architecture/presentation/resources/langague_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const String PREF_KEY_LANG = 'PREF_KEY_LANG';
 const String PREF_KEY_ONBOARDING = 'PREF_KEY_ONBOARDING';
 const String PREF_KEY_IS_USER_LOGGED_IN = 'PREF_KEY_IS_USER_LOGGED_IN';
+const String PREF_KEY_TOKEN = 'PREF_KEY_TOKEN';
 
 class AppPreferences {
   static const PREF_PREFIX = '__CLEAN_ARCH__';
@@ -47,6 +49,14 @@ class AppPreferences {
 
   bool isOnboardingViewed() {
     return _preferences.getBool(PREF_KEY_ONBOARDING) ?? false;
+  }
+
+  Future<void> setToken(String token) async {
+    await _preferences.setString(PREF_KEY_TOKEN, token);
+  }
+
+  String getToken() {
+    return _preferences.getString(PREF_KEY_TOKEN) ?? 'NO TOKEN SAVED';
   }
 
   Future<void> setIsUserLoggedIn() async {
