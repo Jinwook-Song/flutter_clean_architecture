@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+const String ASSETS_PATH_LOCALISATIONS = "assets/translations";
+
 enum LanguageType {
   ENGLISH(
     value: 'en',

@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:clean_architecture/presentation/resources/langague_manager.dart';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const String PREF_KEY_LANG = 'PREF_KEY_LANG';
@@ -18,6 +19,26 @@ class AppPreferences {
     String? langugage = _preferences.getString(PREF_PREFIX + PREF_KEY_LANG);
 
     return langugage ?? LanguageType.ENGLISH.getValue();
+  }
+
+  void setLanguageChanged() {
+    String currentLanguage = getAppLanguage();
+    if (currentLanguage == LanguageType.ENGLISH.getValue()) {
+      _preferences.setString(
+          PREF_PREFIX + PREF_KEY_LANG, LanguageType.ENGLISH.getValue());
+    } else {
+      _preferences.setString(
+          PREF_PREFIX + PREF_KEY_LANG, LanguageType.KOREAN.getValue());
+    }
+  }
+
+  Locale getLocal() {
+    String currentLanguage = getAppLanguage();
+    if (currentLanguage == LanguageType.KOREAN.getValue()) {
+      return LanguageType.KOREAN.getLocale();
+    } else {
+      return LanguageType.ENGLISH.getLocale();
+    }
   }
 
   Future<void> setOnboardingViewed() async {
@@ -38,9 +59,5 @@ class AppPreferences {
 
   Future<void> logout() async {
     await _preferences.remove(PREF_KEY_IS_USER_LOGGED_IN);
-  }
-
-  Future<void> setLanguageChanged() async {
-    // TODO
   }
 }
